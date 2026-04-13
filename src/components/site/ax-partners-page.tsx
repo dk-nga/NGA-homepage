@@ -2,7 +2,7 @@
 
 /* eslint-disable @next/next/no-img-element */
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -68,6 +68,15 @@ const AXPartners = () => {
   const handleCloseCtaForm = () => {
     setShowCtaForm(null);
   };
+
+  useEffect(() => {
+    if (window.location.hash === "#diagnosis-form") {
+      setShowCtaForm("diagnosis");
+      setTimeout(() => {
+        document.getElementById("diagnosis-form")?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  }, []);
 
   // Problem section items
   const problemItems = [
@@ -1648,7 +1657,7 @@ const AXPartners = () => {
       </AnimatePresence>
 
       {/* ========== 8. FINAL CTA SECTION ========== */}
-      <section className="relative py-24 md:py-32 px-4 bg-gradient-to-br from-[#8D36EB] to-[#165CFF] overflow-hidden min-h-[600px]">
+      <section id="diagnosis-form" className="relative py-24 md:py-32 px-4 bg-gradient-to-br from-[#8D36EB] to-[#165CFF] overflow-hidden min-h-[600px]">
         {/* Background Typography */}
         <div className="absolute inset-0 overflow-hidden select-none pointer-events-none">
           <div className="absolute top-[5%] left-[5%] text-[8rem] md:text-[12rem] lg:text-[16rem] font-black text-white/[0.03] leading-none tracking-tighter">

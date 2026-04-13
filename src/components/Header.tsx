@@ -57,7 +57,7 @@ function AnnouncementBanner() {
           </>
         ),
         badgeStyle: "bg-gradient-to-r from-[#8D36EB] to-[#165CFF]",
-        href: "#hero",
+        href: "#diagnosis-form",
       };
     }
     if (isEducation) {
