@@ -2,7 +2,7 @@
 
 import { startTransition, useState } from "react";
 
-export function HeroInlineForm() {
+export function HeroInlineForm({ onClose }: { onClose?: () => void }) {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
 

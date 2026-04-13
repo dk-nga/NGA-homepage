@@ -1,5 +1,5 @@
 import { BlogListPage } from "@/components/site/blog-list-page";
-import { getGhostPosts } from "@/lib/ghost";
+import { getGhostPosts, GhostPost } from "@/lib/ghost";
 
 export default async function BlogPage({
   params,
@@ -7,7 +7,7 @@ export default async function BlogPage({
   params: Promise<{ locale: string }>;
 }) {
   await params;
-  let posts = [];
+  let posts: GhostPost[] = [];
   let hasError = false;
 
   try {

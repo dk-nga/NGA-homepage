@@ -1,5 +1,5 @@
 import { CasesPage } from "@/components/site/cases-page";
-import { getGhostPosts } from "@/lib/ghost";
+import { getGhostPosts, GhostPost } from "@/lib/ghost";
 
 export default async function CasesRoute({
   params,
@@ -7,7 +7,7 @@ export default async function CasesRoute({
   params: Promise<{ locale: string }>;
 }) {
   await params;
-  let posts = [];
+  let posts: GhostPost[] = [];
   let hasError = false;
 
   try {
