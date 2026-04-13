@@ -149,7 +149,7 @@ const AXPartners = () => {
               <Button
                 onClick={handleDiagnosisClick}
                 size="sm"
-                className="bg-gradient-to-r from-[#8D36EB] to-[#165CFF] hover:from-[#7B2ED1] hover:to-[#1450E0] text-white px-4 md:px-6 py-2.5 md:py-4 text-xs md:text-sm rounded-lg shadow-lg shadow-[#8D36EB]/25"
+                className="border-0 bg-gradient-to-r from-[#8D36EB] to-[#165CFF] hover:from-[#7B2ED1] hover:to-[#1450E0] text-white px-4 md:px-6 py-3.5 md:py-5 text-xs md:text-sm rounded-lg shadow-lg shadow-[#8D36EB]/25"
               >
                 {t('axp.hero.ctaDiagnosis')}
                 <ArrowRight className="ml-1.5 h-3.5 w-3.5 md:h-4 md:w-4" />
@@ -158,7 +158,7 @@ const AXPartners = () => {
                 variant="outline"
                 size="sm"
                 asChild
-                className="border-[#8D36EB]/30 text-[#8D36EB] hover:bg-[#8D36EB]/5 px-4 md:px-6 py-2.5 md:py-4 text-xs md:text-sm rounded-lg bg-white/80 backdrop-blur-sm"
+                className="border-[#8D36EB]/20 text-[#8D36EB] hover:bg-[#8D36EB]/5 px-4 md:px-6 py-3.5 md:py-5 text-xs md:text-sm rounded-lg bg-white/80 backdrop-blur-sm"
               >
                 <Link href="/cases">{t('axp.hero.ctaCases')}</Link>
               </Button>
@@ -1418,120 +1418,84 @@ const AXPartners = () => {
           </motion.div>
 
           {/* Case Cards - Compact Mobile Design */}
-          <div className="grid md:grid-cols-3 gap-4 md:gap-6">
-            {/* Case 1: 보고서 자동화 */}
+          <div className="grid md:grid-cols-3 gap-4 md:gap-6 items-stretch">
+            {/* Case 1 */}
             <motion.div
-              className="group bg-slate-50 rounded-xl md:rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500"
+              className="group bg-slate-50 rounded-xl md:rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500 flex flex-col"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              {/* Image Section */}
-              <div className="relative h-32 md:h-48 overflow-hidden">
-                <img 
-                  src={case1ReportAutomation.src}
-                  alt="보고서 자동화"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                {/* Category Badge */}
+              <div className="relative h-32 md:h-48 overflow-hidden shrink-0">
+                <img src={case1ReportAutomation.src} alt="보고서 자동화" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute top-2 left-2 md:top-4 md:left-4">
-                  <span className="text-[10px] md:text-xs font-semibold text-white bg-[#8D36EB] px-2 py-1 md:px-3 md:py-1.5 rounded-md">
-                    {t('axp.case.category1')}
-                  </span>
+                  <span className="text-[10px] md:text-xs font-semibold text-white bg-[#8D36EB] px-2 py-1 md:px-3 md:py-1.5 rounded-md">{t('axp.case.category1')}</span>
                 </div>
               </div>
-              
-              {/* Content Section */}
-              <div className="p-3 md:p-5 bg-white">
+              <div className="p-3 md:p-5 bg-white flex flex-col flex-1">
                 <p className="text-[10px] md:text-xs font-semibold text-muted-foreground tracking-wider mb-1 md:mb-2">{t('axp.case.company1')}</p>
                 <h3 className="text-sm md:text-lg font-bold text-foreground mb-1.5 md:mb-2">
                   {t('axp.case.headline1')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8D36EB] to-[#165CFF]">{t('axp.case.result1')}</span>
                 </h3>
-                <p className="text-[10px] md:text-sm text-muted-foreground leading-relaxed mb-3 md:mb-4 line-clamp-2">
-                  {t('axp.case.desc1')}
-                </p>
-                <button className="flex items-center gap-1.5 md:gap-2 text-[10px] md:text-sm font-semibold text-foreground hover:text-[#8D36EB] transition-colors group/btn">
-                  <span className="px-2.5 py-1.5 md:px-4 md:py-2 bg-foreground text-white rounded-md group-hover/btn:bg-[#8D36EB] transition-colors">{t('axp.case.viewMore')}</span>
-                  <ArrowRight className="h-3 w-3 md:h-4 md:w-4 transition-transform group-hover/btn:translate-x-1" />
+                <p className="text-[10px] md:text-sm text-muted-foreground leading-relaxed line-clamp-2 flex-1">{t('axp.case.desc1')}</p>
+                <button className="mt-4 flex items-center gap-1.5 md:gap-2 text-[10px] md:text-sm font-semibold group/btn">
+                  <span className="px-2.5 py-1.5 md:px-4 md:py-2 bg-black text-white rounded-md group-hover/btn:bg-[#8D36EB] transition-colors">{t('axp.case.viewMore')}</span>
+                  <ArrowRight className="h-3 w-3 md:h-4 md:w-4 text-black group-hover/btn:text-[#8D36EB] transition-colors group-hover/btn:translate-x-1 transition-transform" />
                 </button>
               </div>
             </motion.div>
 
-            {/* Case 2: 세일즈/CS RAG 챗봇 */}
+            {/* Case 2 */}
             <motion.div
-              className="group bg-slate-50 rounded-xl md:rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500"
+              className="group bg-slate-50 rounded-xl md:rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500 flex flex-col"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              {/* Image Section */}
-              <div className="relative h-32 md:h-48 overflow-hidden">
-                <img 
-                  src={case2ChatbotRag.src}
-                  alt="RAG 챗봇"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                {/* Category Badge */}
+              <div className="relative h-32 md:h-48 overflow-hidden shrink-0">
+                <img src={case2ChatbotRag.src} alt="RAG 챗봇" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute top-2 left-2 md:top-4 md:left-4">
-                  <span className="text-[10px] md:text-xs font-semibold text-white bg-[#165CFF] px-2 py-1 md:px-3 md:py-1.5 rounded-md">
-                    {t('axp.case.category2')}
-                  </span>
+                  <span className="text-[10px] md:text-xs font-semibold text-white bg-[#165CFF] px-2 py-1 md:px-3 md:py-1.5 rounded-md">{t('axp.case.category2')}</span>
                 </div>
               </div>
-              
-              {/* Content Section */}
-              <div className="p-3 md:p-5 bg-white">
+              <div className="p-3 md:p-5 bg-white flex flex-col flex-1">
                 <p className="text-[10px] md:text-xs font-semibold text-muted-foreground tracking-wider mb-1 md:mb-2">{t('axp.case.company2')}</p>
                 <h3 className="text-sm md:text-lg font-bold text-foreground mb-1.5 md:mb-2">
                   {t('axp.case.headline2')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#165CFF] to-[#8D36EB]">{t('axp.case.result2')}</span>
                 </h3>
-                <p className="text-[10px] md:text-sm text-muted-foreground leading-relaxed mb-3 md:mb-4 line-clamp-2">
-                  {t('axp.case.desc2')}
-                </p>
-                <button className="flex items-center gap-1.5 md:gap-2 text-[10px] md:text-sm font-semibold text-foreground hover:text-[#165CFF] transition-colors group/btn">
-                  <span className="px-2.5 py-1.5 md:px-4 md:py-2 bg-foreground text-white rounded-md group-hover/btn:bg-[#165CFF] transition-colors">{t('axp.case.viewMore')}</span>
-                  <ArrowRight className="h-3 w-3 md:h-4 md:w-4 transition-transform group-hover/btn:translate-x-1" />
+                <p className="text-[10px] md:text-sm text-muted-foreground leading-relaxed line-clamp-2 flex-1">{t('axp.case.desc2')}</p>
+                <button className="mt-4 flex items-center gap-1.5 md:gap-2 text-[10px] md:text-sm font-semibold group/btn">
+                  <span className="px-2.5 py-1.5 md:px-4 md:py-2 bg-black text-white rounded-md group-hover/btn:bg-[#165CFF] transition-colors">{t('axp.case.viewMore')}</span>
+                  <ArrowRight className="h-3 w-3 md:h-4 md:w-4 text-black group-hover/btn:text-[#165CFF] transition-colors group-hover/btn:translate-x-1 transition-transform" />
                 </button>
               </div>
             </motion.div>
 
-            {/* Case 3: 재무 통합 대시보드 */}
+            {/* Case 3 */}
             <motion.div
-              className="group bg-slate-50 rounded-xl md:rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500"
+              className="group bg-slate-50 rounded-xl md:rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500 flex flex-col"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
             >
-              {/* Image Section */}
-              <div className="relative h-32 md:h-48 overflow-hidden">
-                <img 
-                  src={case3Dashboard.src}
-                  alt="재무 대시보드"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                {/* Category Badge */}
+              <div className="relative h-32 md:h-48 overflow-hidden shrink-0">
+                <img src={case3Dashboard.src} alt="재무 대시보드" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute top-2 left-2 md:top-4 md:left-4">
-                  <span className="text-[10px] md:text-xs font-semibold text-white bg-teal-500 px-2 py-1 md:px-3 md:py-1.5 rounded-md">
-                    {t('axp.case.category3')}
-                  </span>
+                  <span className="text-[10px] md:text-xs font-semibold text-white bg-teal-500 px-2 py-1 md:px-3 md:py-1.5 rounded-md">{t('axp.case.category3')}</span>
                 </div>
               </div>
-              
-              {/* Content Section */}
-              <div className="p-3 md:p-5 bg-white">
+              <div className="p-3 md:p-5 bg-white flex flex-col flex-1">
                 <p className="text-[10px] md:text-xs font-semibold text-muted-foreground tracking-wider mb-1 md:mb-2">{t('axp.case.company3')}</p>
                 <h3 className="text-sm md:text-lg font-bold text-foreground mb-1.5 md:mb-2">
                   {t('axp.case.headline3')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-cyan-500">{t('axp.case.result3')}</span>
                 </h3>
-                <p className="text-[10px] md:text-sm text-muted-foreground leading-relaxed mb-3 md:mb-4 line-clamp-2">
-                  {t('axp.case.desc3')}
-                </p>
-                <button className="flex items-center gap-1.5 md:gap-2 text-[10px] md:text-sm font-semibold text-foreground hover:text-teal-500 transition-colors group/btn">
-                  <span className="px-2.5 py-1.5 md:px-4 md:py-2 bg-foreground text-white rounded-md group-hover/btn:bg-teal-500 transition-colors">{t('axp.case.viewMore')}</span>
-                  <ArrowRight className="h-3 w-3 md:h-4 md:w-4 transition-transform group-hover/btn:translate-x-1" />
+                <p className="text-[10px] md:text-sm text-muted-foreground leading-relaxed line-clamp-2 flex-1">{t('axp.case.desc3')}</p>
+                <button className="mt-4 flex items-center gap-1.5 md:gap-2 text-[10px] md:text-sm font-semibold group/btn">
+                  <span className="px-2.5 py-1.5 md:px-4 md:py-2 bg-black text-white rounded-md group-hover/btn:bg-teal-500 transition-colors">{t('axp.case.viewMore')}</span>
+                  <ArrowRight className="h-3 w-3 md:h-4 md:w-4 text-black group-hover/btn:text-teal-500 transition-colors group-hover/btn:translate-x-1 transition-transform" />
                 </button>
               </div>
             </motion.div>
@@ -1547,7 +1511,7 @@ const AXPartners = () => {
             <Button
               variant="outline"
               asChild
-              className="border-[#8D36EB]/30 text-[#8D36EB] hover:bg-[#8D36EB]/5 px-6 py-3 md:px-8 md:py-4 text-sm md:text-base rounded-xl"
+              className="border-[#8D36EB]/30 text-[#8D36EB] hover:bg-[#8D36EB]/5 px-6 py-4 md:px-8 md:py-5 text-sm md:text-base rounded-xl"
             >
               <Link href="/cases">
                 {t('axp.case.moreButton')}
@@ -1574,15 +1538,15 @@ const AXPartners = () => {
 
           {/* Comparison Table - Compact Mobile Design with Tap to Expand */}
           <motion.div
-            className="bg-white border border-slate-200 rounded-xl md:rounded-2xl overflow-hidden shadow-lg cursor-pointer md:cursor-default group relative"
+            className="bg-white border border-slate-100 rounded-xl md:rounded-2xl overflow-hidden shadow-sm cursor-pointer md:cursor-default group relative"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             onClick={() => setShowTableModal(true)}
           >
-            <Table>
+            <Table className="[&_tr]:border-slate-100/80">
               <TableHeader>
-                <TableRow className="bg-slate-50">
+                <TableRow className="bg-slate-50/60 border-slate-100/80">
                   <TableHead className="w-[20%] md:w-1/4 font-bold text-muted-foreground text-[10px] md:text-sm px-2 md:px-4 py-2 md:py-3">{t('axp.diff.header.category')}</TableHead>
                   <TableHead className="w-[40%] md:w-[37.5%] font-bold text-center text-muted-foreground text-[10px] md:text-sm px-2 md:px-4 py-2 md:py-3">{t('axp.diff.header.general')}</TableHead>
                   <TableHead className="w-[40%] md:w-[37.5%] font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-[#8D36EB] to-[#165CFF] text-[10px] md:text-sm px-2 md:px-4 py-2 md:py-3">{t('axp.diff.header.ax')}</TableHead>
@@ -1651,9 +1615,9 @@ const AXPartners = () => {
 
               {/* Expanded Table */}
               <div className="p-4">
-                <Table>
+                <Table className="[&_tr]:border-slate-100/80">
                   <TableHeader>
-                    <TableRow className="bg-slate-50">
+                    <TableRow className="bg-slate-50/60 border-slate-100/80">
                       <TableHead className="w-1/4 font-bold text-muted-foreground text-xs px-3 py-3">{t('axp.diff.header.category')}</TableHead>
                       <TableHead className="w-[37.5%] font-bold text-center text-muted-foreground text-xs px-3 py-3">{t('axp.diff.header.general')}</TableHead>
                       <TableHead className="w-[37.5%] font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-[#8D36EB] to-[#165CFF] text-xs px-3 py-3">{t('axp.diff.header.ax')}</TableHead>
@@ -1740,7 +1704,7 @@ const AXPartners = () => {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button
                     onClick={handleCtaDiagnosisClick}
-                    className="bg-white text-[#8D36EB] hover:bg-white/90 px-8 py-6 text-lg rounded-xl font-bold shadow-xl"
+                    className="border-0 bg-white text-[#8D36EB] hover:bg-white/90 px-8 py-7 text-lg rounded-xl font-bold shadow-xl"
                   >
                     {t('axp.cta.button1')}
                     <ArrowRight className="ml-2 h-5 w-5" />

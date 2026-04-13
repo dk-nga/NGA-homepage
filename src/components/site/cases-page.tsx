@@ -407,7 +407,7 @@ function CasesPageContent({ posts, hasError = false }: CasesPageProps) {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.05 }}
                       whileHover={{ scale: 1.02, y: -4 }}
-                      className="group overflow-hidden rounded-2xl border border-border/50 bg-card shadow-sm transition-shadow duration-300 hover:shadow-xl hover:shadow-primary/10"
+                      className="group overflow-hidden rounded-2xl bg-card shadow-sm transition-shadow duration-300 hover:shadow-xl hover:shadow-primary/10"
                     >
                       <Link href={`/blog/${post.slug}`}>
                         <div className="relative aspect-[16/10] overflow-hidden">

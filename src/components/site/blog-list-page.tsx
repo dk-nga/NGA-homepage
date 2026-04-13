@@ -173,10 +173,10 @@ export function BlogListPage({ posts, hasError = false }: BlogListPageProps) {
                 className="mb-6 md:mb-10"
               >
                 <Tabs value={selectedCategory} onValueChange={setSelectedCategory}>
-                  <TabsList className="h-auto flex-wrap justify-start gap-2 bg-transparent p-0 md:gap-1 md:bg-muted/50 md:p-1">
+                  <TabsList className="h-auto flex-wrap justify-start gap-1.5 rounded-full bg-white/50 p-1.5 shadow-sm backdrop-blur-md">
                     <TabsTrigger
                       value="all"
-                      className="rounded-full border border-black/20 px-3 py-1.5 text-xs data-[state=active]:border-transparent data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#8D36EB] data-[state=active]:to-[#165CFF] data-[state=active]:text-white md:rounded-md md:px-4 md:py-2 md:text-sm"
+                      className="rounded-full px-4 py-1.5 text-xs text-foreground/70 transition-all hover:text-foreground data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#8D36EB] data-[state=active]:to-[#165CFF] data-[state=active]:text-white data-[state=active]:shadow-md md:px-5 md:py-2 md:text-sm"
                     >
                       {t("blog.categoryAll")}
                     </TabsTrigger>
@@ -184,7 +184,7 @@ export function BlogListPage({ posts, hasError = false }: BlogListPageProps) {
                       <TabsTrigger
                         key={category.slug}
                         value={category.slug}
-                        className="rounded-full border border-black/20 px-3 py-1.5 text-xs data-[state=active]:border-transparent data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#8D36EB] data-[state=active]:to-[#165CFF] data-[state=active]:text-white md:rounded-md md:px-4 md:py-2 md:text-sm"
+                        className="rounded-full px-4 py-1.5 text-xs text-foreground/70 transition-all hover:text-foreground data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#8D36EB] data-[state=active]:to-[#165CFF] data-[state=active]:text-white data-[state=active]:shadow-md md:px-5 md:py-2 md:text-sm"
                       >
                         {category.name}
                       </TabsTrigger>

@@ -36,68 +36,47 @@ export interface GhostPostsResponse {
   };
 }
 
+const GHOST_URL = "https://nextgenai.ghost.io";
+const GHOST_KEY = "590ceca1738bc8daf927c30cfb";
+
 const EMPTY_POSTS_RESPONSE: GhostPostsResponse = {
   posts: [],
-  meta: {
-    pagination: {
-      page: 1,
-      limit: 0,
-      pages: 0,
-      total: 0,
-    },
-  },
+  meta: { pagination: { page: 1, limit: 0, pages: 0, total: 0 } },
 };
 
-function getGhostEndpoint(searchParams: URLSearchParams) {
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+async function fetchGhost(params: Record<string, string>): Promise<GhostPostsResponse> {
+  const searchParams = new URLSearchParams({
+    key: GHOST_KEY,
+    include: "tags,authors",
+    ...params,
+  });
 
-  if (!supabaseUrl || !supabaseAnonKey) {
-    return null;
-  }
+  const url = `${GHOST_URL}/ghost/api/content/posts/?${searchParams.toString()}`;
 
-  return {
-    url: `${supabaseUrl}/functions/v1/ghost-blog?${searchParams.toString()}`,
-    anonKey: supabaseAnonKey,
-  };
-}
-
-async function fetchGhost(searchParams: URLSearchParams): Promise<GhostPostsResponse | null> {
-  const endpoint = getGhostEndpoint(searchParams);
-
-  if (!endpoint) {
-    return null;
-  }
-
-  const response = await fetch(endpoint.url, {
-    headers: {
-      Authorization: `Bearer ${endpoint.anonKey}`,
-      "Content-Type": "application/json",
-    },
-    next: {
-      revalidate: 300,
-    },
+  const response = await fetch(url, {
+    next: { revalidate: 300 },
   });
 
   if (!response.ok) {
-    throw new Error(`Failed to fetch Ghost posts: ${response.status}`);
+    throw new Error(`Ghost API error: ${response.status}`);
   }
 
   return (await response.json()) as GhostPostsResponse;
 }
 
-export async function getGhostPosts(page = 1, limit = 12) {
-  const searchParams = new URLSearchParams({
-    page: String(page),
-    limit: String(limit),
-  });
-
-  return (await fetchGhost(searchParams)) ?? EMPTY_POSTS_RESPONSE;
+export async function getGhostPosts(page = 1, limit = 12): Promise<GhostPostsResponse> {
+  try {
+    return await fetchGhost({ page: String(page), limit: String(limit) });
+  } catch {
+    return EMPTY_POSTS_RESPONSE;
+  }
 }
 
-export async function getGhostPost(slug: string) {
-  const searchParams = new URLSearchParams({ slug });
-  const response = await fetchGhost(searchParams);
-
-  return response?.posts[0] ?? null;
+export async function getGhostPost(slug: string): Promise<GhostPost | null> {
+  try {
+    const response = await fetchGhost({ filter: `slug:${slug}`, limit: "1" });
+    return response.posts[0] ?? null;
+  } catch {
+    return null;
+  }
 }

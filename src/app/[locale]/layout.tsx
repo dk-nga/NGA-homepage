@@ -5,26 +5,50 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 
 export const metadata: Metadata = {
-  title: "넥스트젠AI - AI 업무 자동화 전문 기업 | AX(AI Experience) 솔루션",
+  title: "넥스트젠AI - AI Transformation(AX) 전문 기업 | 기업 AI 전환 솔루션",
   description:
-    "넥스트젠AI는 기업 맞춤형 AI 업무 자동화 솔루션을 제공합니다. 보고서 자동화, AI 챗봇, 데이터 분석 대시보드 등 실질적인 비즈니스 성과를 만들어냅니다. AX 무료 진단 신청하세요.",
+    "넥스트젠AI는 AI Transformation(AX)으로 기업의 업무 구조를 바꿉니다. 상품 기획·콘텐츠·마케팅·데이터 분석까지 AI 에이전트로 자동화하여 글로벌 확장을 가속합니다. AX 무료 진단 신청하세요.",
   keywords: [
+    "AI Transformation",
+    "AX",
     "AI 업무 자동화",
     "AI 도입",
     "생성형 AI",
     "기업 AI 솔루션",
-    "AX",
-    "AI Experience",
+    "AI 에이전트",
     "넥스트젠AI",
     "NextGen AI",
     "업무 자동화",
     "AI 챗봇",
-    "보고서 자동화",
     "RAG",
     "AI 컨설팅",
     "AI 교육",
-    "맞춤형 AI 솔루션 개발",
+    "이커머스 AI",
   ],
+  openGraph: {
+    type: "website",
+    locale: "ko_KR",
+    url: "https://nextgenai.kr",
+    siteName: "넥스트젠AI",
+    title: "넥스트젠AI — AI Transformation(AX) 전문 기업",
+    description:
+      "AI Transformation(AX)으로 기업의 업무 구조를 바꿉니다. AI 에이전트 자동화, AI 교육, 글로벌 이커머스 전환까지. 지금 무료 AX 진단 신청하세요.",
+    images: [
+      {
+        url: "https://nextgenai.kr/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "넥스트젠AI - AI Transformation(AX) 전문 기업",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "넥스트젠AI — AI Transformation(AX) 전문 기업",
+    description:
+      "AI Transformation(AX)으로 기업의 업무 구조를 바꿉니다. AI 에이전트 자동화, AI 교육, 글로벌 이커머스 전환까지.",
+    images: ["https://nextgenai.kr/og-image.png"],
+  },
 };
 
 export function generateStaticParams() {

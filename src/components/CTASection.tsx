@@ -9,20 +9,12 @@ import { useContactWidget } from "@/contexts/ContactWidgetContext";
 
 const containerVariants = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { delayChildren: 0.1, staggerChildren: 0.2 },
-  },
+  visible: { opacity: 1, transition: { delayChildren: 0.1, staggerChildren: 0.2 } },
 };
 
 const itemVariants = {
   hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, transition: { duration: 0.7 }, y: 0 },
-};
-
-const buttonVariants = {
-  hidden: { opacity: 0, scale: 0.9, y: 30 },
-  visible: { opacity: 1, scale: 1, transition: { duration: 0.5 }, y: 0 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
 };
 
 export function CTASection() {
@@ -50,7 +42,7 @@ export function CTASection() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ amount: 0.5, once: false }}
+          viewport={{ amount: 0.4, once: false }}
         >
           <motion.h2 className="mb-4 text-2xl font-black md:mb-6 md:text-6xl" variants={itemVariants}>
             {t("cta.title1")}{" "}
@@ -59,18 +51,20 @@ export function CTASection() {
             </span>
             {t("cta.title3")}
           </motion.h2>
+
           <motion.p
-            className="mx-auto mb-8 max-w-2xl whitespace-pre-line text-sm text-muted-foreground md:mb-10 md:text-xl"
+            className="mx-auto mb-10 max-w-2xl whitespace-pre-line text-sm text-muted-foreground md:text-xl"
             variants={itemVariants}
           >
             {t("cta.subtitle")}
           </motion.p>
+
           <motion.div className="flex flex-col justify-center gap-4 sm:flex-row" variants={containerVariants}>
             <motion.button
               type="button"
               onClick={openDiagnosisModal}
               className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#8D36EB] to-[#165CFF] px-6 py-3 text-base font-semibold text-white transition-all hover:opacity-90 md:px-8 md:py-4 md:text-lg"
-              variants={buttonVariants}
+              variants={itemVariants}
               whileHover={{ gap: "12px", scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -80,17 +74,18 @@ export function CTASection() {
             <motion.button
               type="button"
               onClick={() => setDownloadOpen(true)}
-              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-border px-6 py-3 text-base font-semibold transition-all hover:border-[#8D36EB]/50 md:px-8 md:py-4 md:text-lg"
-              variants={buttonVariants}
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-border/60 px-6 py-3 text-base font-semibold transition-all hover:border-[#8D36EB]/40 md:px-8 md:py-4 md:text-lg"
+              variants={itemVariants}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
             >
               {t("cta.button2")}
             </motion.button>
           </motion.div>
-          <DownloadModal open={downloadOpen} onOpenChange={setDownloadOpen} />
         </motion.div>
       </div>
+
+      <DownloadModal open={downloadOpen} onOpenChange={setDownloadOpen} />
     </section>
   );
 }

@@ -57,8 +57,8 @@ export function ClientLogosSection() {
           transition={{ delay: 0.3, duration: 0.8 }}
           className="relative mx-auto max-w-4xl"
         >
-          <div className="relative overflow-hidden rounded-3xl p-[2px]">
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-[#8D36EB] via-[#165CFF] to-[#8D36EB] opacity-60" />
+          <div className="relative overflow-hidden rounded-3xl p-[1px]">
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-[#8D36EB] via-[#165CFF] to-[#8D36EB] opacity-25" />
             <div className="relative rounded-2xl bg-[#f8f9fc] p-4 md:rounded-3xl md:p-12">
               <div className="mb-3 grid grid-cols-2 gap-3 sm:grid-cols-5 md:mb-8 md:gap-8">
                 {clients.slice(0, 5).map((client, index) => (

@@ -3,7 +3,7 @@
 import { useLocale, useMessages } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
 
-export type Language = "ko" | "ja";
+export type Language = "ko" | "en" | "ja";
 
 function getNestedValue(source: unknown, key: string): string {
   const value = key.split(".").reduce<unknown>((current, segment) => {
@@ -14,7 +14,15 @@ function getNestedValue(source: unknown, key: string): string {
     return undefined;
   }, source);
 
-  return typeof value === "string" ? value : key;
+  if (typeof value === "string") return value;
+
+  // Object with _value key (e.g. { "_value": "기업명", "placeholder": "..." })
+  if (value && typeof value === "object" && "_value" in (value as Record<string, unknown>)) {
+    const inner = (value as Record<string, unknown>)["_value"];
+    if (typeof inner === "string") return inner;
+  }
+
+  return key;
 }
 
 export function useLanguage() {

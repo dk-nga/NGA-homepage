@@ -23,7 +23,7 @@ export async function proxy(request: NextRequest) {
 export const config = {
   matcher: [
     "/",
-    "/(ko|ja)/:path*",
+    "/(ko|en|ja)/:path*",
     "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
   ],
 };

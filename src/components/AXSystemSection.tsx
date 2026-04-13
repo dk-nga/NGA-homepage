@@ -238,12 +238,12 @@ const TestimonialSlider = ({ testimonials }: { testimonials: TestimonialType[] }
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
     >
       {/* Full-width dark container with slide-up hanging effect */}
-      <motion.div 
-        className="relative bg-foreground rounded-2xl md:rounded-3xl overflow-hidden"
+      <motion.div
+        className="relative rounded-2xl md:rounded-3xl overflow-hidden"
+        style={{ background: "#0f0f1a", transformPerspective: 1000 }}
         initial={{ y: 60, rotateX: 5 }}
         animate={isInView ? { y: 0, rotateX: 0 } : { y: 60, rotateX: 5 }}
         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-        style={{ transformPerspective: 1000 }}
       >
         <div className="flex h-full">
           {/* Left side - Number selector (inside container) */}
@@ -255,7 +255,7 @@ const TestimonialSlider = ({ testimonials }: { testimonials: TestimonialType[] }
                 className={`w-5 h-5 md:w-6 md:h-6 rounded-full flex items-center justify-center text-[9px] md:text-xs font-bold transition-all duration-300 ${
                   activeIndex === index
                     ? 'bg-gradient-to-r from-[#8D36EB] to-[#165CFF] text-white'
-                    : 'bg-background/20 text-background/60 hover:bg-background/30'
+                    : 'bg-white/15 text-white/50 hover:bg-white/25'
                 }`}
                 initial={{ opacity: 0, x: -20 }}
                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
@@ -292,15 +292,15 @@ const TestimonialSlider = ({ testimonials }: { testimonials: TestimonialType[] }
                   className="absolute inset-0 flex flex-col justify-center"
                 >
                   {/* Title & Subtitle */}
-                  <h3 className="text-sm md:text-2xl lg:text-3xl font-black text-background mb-0.5 md:mb-2 leading-tight">
+                  <h3 className="text-sm md:text-2xl lg:text-3xl font-black text-white mb-0.5 md:mb-2 leading-tight">
                     {testimonials[activeIndex].title}
                   </h3>
                   <p className="text-xs md:text-xl font-bold bg-gradient-to-r from-[#8D36EB] to-[#165CFF] bg-clip-text text-transparent mb-2 md:mb-4">
                     {testimonials[activeIndex].subtitle}
                   </p>
-                  
+
                   {/* Full quote - fixed height with line clamp */}
-                  <p className="text-background/70 text-[10px] md:text-base leading-relaxed line-clamp-3 md:line-clamp-4 max-w-2xl">
+                  <p className="text-white/65 text-[10px] md:text-base leading-relaxed line-clamp-3 md:line-clamp-4 max-w-2xl">
                     {testimonials[activeIndex].quote}
                   </p>
                 </motion.div>
@@ -385,18 +385,18 @@ const TestimonialSlider = ({ testimonials }: { testimonials: TestimonialType[] }
         </div>
         
         {/* Mobile company info - more compact */}
-        <div className="lg:hidden px-3 py-2.5 md:p-5 bg-background border-t border-border">
+        <div className="lg:hidden px-3 py-2.5 md:p-5 border-t border-white/10" style={{ background: "#1a1a2e" }}>
           <div className="flex items-center gap-2.5">
             <div className="w-9 h-9 md:w-14 md:h-14 rounded-lg overflow-hidden flex-shrink-0">
-              <img 
-                src={testimonials[activeIndex].image} 
+              <img
+                src={testimonials[activeIndex].image}
                 alt={testimonials[activeIndex].company}
                 className="w-full h-full object-cover"
               />
             </div>
             <div>
-              <p className="font-bold text-foreground text-[11px] md:text-sm">{testimonials[activeIndex].role}</p>
-              <p className="text-[10px] md:text-xs text-muted-foreground">{testimonials[activeIndex].employeeCount}</p>
+              <p className="font-bold text-white text-[11px] md:text-sm">{testimonials[activeIndex].role}</p>
+              <p className="text-[10px] md:text-xs text-white/50">{testimonials[activeIndex].employeeCount}</p>
             </div>
           </div>
         </div>
@@ -640,7 +640,7 @@ const MobileAllSteps = ({ steps }: { steps: StepType[] }) => {
       <motion.div 
         className="absolute bottom-2 left-1/2 -translate-x-1/2 flex flex-col items-center z-10"
       >
-        <div className="flex h-6 w-4 justify-center rounded-full border-2 border-slate-300/70 bg-white/20 pt-1">
+        <div className="flex h-6 w-4 justify-center rounded-full border border-slate-200/40 bg-white/20 pt-1">
           <motion.div 
             className="h-1 w-1 rounded-full bg-slate-400/70"
             animate={{ y: [0, 8, 0] }}
@@ -703,7 +703,7 @@ const FullScreenStep = ({ step, index }: { step: StepType; index: number }) => {
                   className="w-20 h-20 md:w-24 md:h-24 object-contain"
                 />
               ) : (
-                <div className="w-14 h-14 rounded-xl border-2 border-foreground/10 flex items-center justify-center">
+                <div className="w-14 h-14 rounded-xl border border-foreground/6 flex items-center justify-center">
                   <step.icon className="w-6 h-6 text-foreground/60" />
                 </div>
               )}
@@ -819,7 +819,7 @@ const FullScreenStep = ({ step, index }: { step: StepType; index: number }) => {
       <motion.div 
         className="absolute bottom-2 left-1/2 -translate-x-1/2 flex flex-col items-center"
       >
-        <div className="flex h-8 w-5 justify-center rounded-full border-2 border-slate-300/70 bg-white/20 pt-1.5">
+        <div className="flex h-8 w-5 justify-center rounded-full border border-slate-200/40 bg-white/20 pt-1.5">
           <motion.div 
             className="h-1 w-1 rounded-full bg-slate-400/70"
             animate={{ y: [0, 10, 0] }}
@@ -964,7 +964,7 @@ const AXSystemSection = () => {
             </motion.div>
 
             <motion.div 
-              className="relative overflow-hidden rounded-3xl border border-slate-300/65 bg-gradient-to-br from-[#8D36EB]/5 via-background to-[#165CFF]/5 p-6 md:p-8"
+              className="relative overflow-hidden rounded-3xl border border-slate-200/40 bg-gradient-to-br from-[#8D36EB]/5 via-background to-[#165CFF]/5 p-6 md:p-8"
               variants={itemVariants}
             >
               {/* Decorative corner accent */}
@@ -985,7 +985,7 @@ const AXSystemSection = () => {
         <motion.div 
           className="absolute bottom-1 left-1/2 -translate-x-1/2 flex flex-col items-center"
         >
-          <div className="flex h-8 w-5 justify-center rounded-full border-2 border-slate-300/70 bg-white/20 pt-1.5">
+          <div className="flex h-8 w-5 justify-center rounded-full border border-slate-200/40 bg-white/20 pt-1.5">
             <motion.div 
               className="h-1 w-1 rounded-full bg-slate-400/70"
               animate={{ y: [0, 10, 0] }}
@@ -1060,7 +1060,7 @@ const AXSystemSection = () => {
               {translatedDifferentiators.map((item, index) => (
                 <motion.div
                   key={index}
-                  className="group relative overflow-hidden rounded-2xl border border-slate-300/65 bg-background p-5 transition-all duration-500 hover:border-[#8D36EB]/18 md:p-6"
+                  className="group relative overflow-hidden rounded-2xl border border-slate-200/40 bg-background p-5 transition-all duration-500 hover:border-[#8D36EB]/18 md:p-6"
                   variants={itemVariants}
                   whileHover={{ y: -4 }}
                 >

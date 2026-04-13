@@ -618,7 +618,7 @@ const CoreProgramCard = ({ program }: CoreProgramCardProps) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Base Card */}
-      <div className="bg-white/80 backdrop-blur-sm border border-border/50 rounded-xl md:rounded-2xl overflow-hidden h-full transition-all hover:border-[#8D36EB]/30 hover:shadow-xl hover:shadow-[#8D36EB]/5">
+      <div className="bg-white/80 backdrop-blur-sm rounded-xl md:rounded-2xl overflow-hidden h-full shadow-sm transition-all hover:shadow-lg hover:shadow-[#8D36EB]/5">
         {/* Image Header */}
         <div className="relative h-28 md:h-44 overflow-hidden">
           <img 
@@ -655,7 +655,7 @@ const CoreProgramCard = ({ program }: CoreProgramCardProps) => {
         transition={{ duration: 0.25 }}
         className="absolute inset-0 z-10"
       >
-        <div className="bg-white/98 backdrop-blur-xl rounded-xl md:rounded-2xl p-4 md:p-6 border border-[#8D36EB]/20 shadow-2xl h-full flex flex-col">
+        <div className="bg-white/98 backdrop-blur-xl rounded-xl md:rounded-2xl p-4 md:p-6 shadow-md h-full flex flex-col">
           {/* Header */}
           <div className={`inline-flex items-center gap-2 px-2 md:px-3 py-0.5 md:py-1 rounded-full bg-gradient-to-r ${program.color} self-start mb-3 md:mb-4`}>
             <span className="text-[10px] md:text-xs font-bold text-white">{program.step}</span>
@@ -812,15 +812,24 @@ const useEducationTestimonials = (language: string) => {
 // Testimonial Carousel Component - Now fetches from database
 const TestimonialCarousel = ({ t, language }: { t: (key: string) => string; language: string }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const { testimonials, loading } = useEducationTestimonials(language);
+  const { testimonials: dbTestimonials, loading } = useEducationTestimonials(language);
+
+  // Fallback testimonials from translation when DB is empty
+  const fallbackTestimonials = [
+    { id: "f1", title: t("edu.testimonial4.role"), subtitle: t("edu.testimonial4.quote").slice(0, 40) + "...", content: t("edu.testimonial4.description"), author_name: t("edu.testimonial4.author").split(" ").slice(-1)[0], author_title: t("edu.testimonial4.author").split(" ").slice(0, -1).join(" ") },
+    { id: "f2", title: t("edu.testimonial3.role"), subtitle: t("edu.testimonial3.quote").slice(0, 40) + "...", content: t("edu.testimonial3.description"), author_name: t("edu.testimonial3.author").split(",")[0], author_title: t("edu.testimonial3.author").split(",")[1]?.trim() || "" },
+    { id: "f3", title: t("edu.testimonial1.role"), subtitle: t("edu.testimonial1.quote").slice(0, 40) + "...", content: t("edu.testimonial1.description"), author_name: t("edu.testimonial1.author"), author_title: t("edu.testimonial1.role") },
+    { id: "f4", title: t("edu.testimonial2.role"), subtitle: t("edu.testimonial2.quote").slice(0, 40) + "...", content: t("edu.testimonial2.description"), author_name: t("edu.testimonial2.author"), author_title: t("edu.testimonial2.role") },
+    { id: "f5", title: t("edu.testimonial5.role"), subtitle: t("edu.testimonial5.quote").slice(0, 40) + "...", content: t("edu.testimonial5.description"), author_name: t("edu.testimonial5.author"), author_title: t("edu.testimonial5.role") },
+  ];
+
+  const testimonials = dbTestimonials.length > 0 ? dbTestimonials : fallbackTestimonials;
 
   const nextSlide = () => {
-    if (testimonials.length === 0) return;
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
   };
 
   const prevSlide = () => {
-    if (testimonials.length === 0) return;
     setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
@@ -838,10 +847,6 @@ const TestimonialCarousel = ({ t, language }: { t: (key: string) => string; lang
         <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
       </div>
     );
-  }
-
-  if (testimonials.length === 0) {
-    return null;
   }
 
   return (
@@ -1127,27 +1132,26 @@ const EducationContent = ({ stats }: EducationPageProps) => {
   const repurchaseStat = getStat('repurchase');
   const studentsStat = getStat('students');
   
-  // Only start animation when data is loaded AND in view
-  const statsLoaded = educationStats && educationStats.length > 0;
-  const shouldStartAnimation = metricsInView && statsLoaded;
-  
-  // Animated counters - triggered by shared visibility AND data loaded
+  // Start animation when in view (Supabase data optional)
+  const shouldStartAnimation = metricsInView;
+
+  // Animated counters
   const satisfactionCount = useAnimatedCounter(
-    parseFloat(satisfactionStat?.stat_value || '4.9'), 
-    2000, 
-    true, 
+    parseFloat(satisfactionStat?.stat_value || '4.6'),
+    2000,
+    true,
     shouldStartAnimation
   );
   const repurchaseCount = useAnimatedCounter(
-    parseInt(repurchaseStat?.stat_value || '92'), 
-    2000, 
-    false, 
+    parseInt(repurchaseStat?.stat_value || '92'),
+    2000,
+    false,
     shouldStartAnimation
   );
   const companyCount = useAnimatedCounter(
-    parseInt(studentsStat?.stat_value || '113'), 
-    2000, 
-    false, 
+    parseInt(studentsStat?.stat_value || '243'),
+    2000,
+    false,
     shouldStartAnimation
   );
   
@@ -1904,7 +1908,7 @@ const EducationContent = ({ stats }: EducationPageProps) => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="relative bg-card border border-border rounded-xl md:rounded-2xl overflow-hidden hover:border-[#8D36EB]/30 hover:shadow-xl hover:shadow-[#8D36EB]/5 transition-all group"
+                className="relative bg-card border border-border/40 rounded-xl md:rounded-2xl overflow-hidden hover:border-[#8D36EB]/20 hover:shadow-xl hover:shadow-[#8D36EB]/5 transition-all group"
                 whileHover={{ y: -5 }}
               >
                 {/* 상단 이미지 영역 */}
@@ -2075,7 +2079,7 @@ const EducationContent = ({ stats }: EducationPageProps) => {
             viewport={{ once: true }}
           >
             <motion.div 
-              className="bg-white/60 backdrop-blur-sm border border-[#8D36EB]/10 rounded-xl md:rounded-2xl p-4 md:p-6 cursor-default"
+              className="bg-white/60 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 cursor-default"
               whileHover={{ y: -4, scale: 1.02 }}
               transition={{ type: "spring", stiffness: 500, damping: 25 }}
             >
@@ -2090,7 +2094,7 @@ const EducationContent = ({ stats }: EducationPageProps) => {
               </p>
             </motion.div>
             <motion.div 
-              className="bg-white/60 backdrop-blur-sm border border-[#165CFF]/10 rounded-xl md:rounded-2xl p-4 md:p-6 cursor-default"
+              className="bg-white/60 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 cursor-default"
               whileHover={{ y: -4, scale: 1.02 }}
               transition={{ type: "spring", stiffness: 500, damping: 25 }}
             >

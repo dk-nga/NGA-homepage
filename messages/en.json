@@ -1,0 +1,1144 @@
+{
+  "banner": {
+    "announcement": "Check the 2026 AX Education Design Roadmap"
+  },
+  "nav": {
+    "partners": "AX Partners",
+    "education": "AI Training",
+    "cases": "Case Studies",
+    "about": "About",
+    "blog": "Blog",
+    "contact": "Contact Us"
+  },
+  "hero": {
+    "title1": "Redefine the",
+    "title2": "Real AI. Real Work.",
+    "subtitle1": "Not strategy, but execution —",
+    "subtitle2": " turns into real business outcomes.",
+    "cta1": "Start AX Consultation",
+    "cta2": "Download AI Case Studies",
+    "scroll": "Scroll Down",
+    "clickToTalk": "Click to Talk",
+    "preparing": "Preparing...",
+    "speaking": "Speaking...",
+    "ttsError": "Voice generation failed",
+    "ttsErrorDesc": "Please try again later.",
+    "ttsText": "Hello. Welcome to NextGen AI. What workflows would you like to transform with AI?"
+  },
+  "clients": {
+    "subtitle": "From enterprises to startups to operations teams",
+    "highlight": "\"AI that actually gets used\"",
+    "title": " — the team that builds it",
+    "cta": "Get in Touch"
+  },
+  "news": {
+    "title1": "NGA",
+    "title2": "'s",
+    "title3": "Real-World ",
+    "title4": " Stories",
+    "viewAll": "View All Updates"
+  },
+  "ax": {
+    "intro": {
+      "title1": "AX is not a ",
+      "title2": "tool —",
+      "title3": " it's a",
+      "title4": "System",
+      "subtitle": "We transform AI Experience from a one-time implementation\ninto a system rooted in your organization.",
+      "box1": "NextGen AI",
+      "box2": "solves this problem",
+      "box3": "structurally within 12 weeks.",
+      "box4": "",
+      "box5": "From diagnosis to adoption — we stay with you every step of the way."
+    },
+    "framework": {
+      "title": "NGA's AX Framework",
+      "subtitle": "A 4-phase execution framework for sustainable AI transformation"
+    },
+    "philosophy": {
+      "title": "NGA's AX Philosophy",
+      "subtitle": "Here's how we're different"
+    },
+    "diff1": {
+      "title": "We take responsibility until results are achieved",
+      "subtitle": "Beyond PoC,",
+      "desc": "we build operational, scalable work systems."
+    },
+    "diff2": {
+      "title": "We design operating structures, not just technology",
+      "subtitle": "Not just tool adoption —",
+      "desc": "we redefine your work architecture."
+    },
+    "diff3": {
+      "title": "We build organizational capability, not one-time implementations",
+      "subtitle": "Alongside the system,",
+      "desc": "we internalize operational and improvement capabilities."
+    },
+    "changing": "This is already happening",
+    "impact1": {
+      "value": "500+",
+      "label": "Training Graduates"
+    },
+    "impact2": {
+      "value": "90%",
+      "label": "Contract Renewal Rate"
+    },
+    "impact3": {
+      "value": "50+",
+      "label": "AI Projects"
+    },
+    "step1": {
+      "tagline": "We look at your business first, not the tools.",
+      "subtitle": "AX Discovery Sprint",
+      "expandedSubtitle": "We look at your business first, not the tools.",
+      "detail1": "Company-wide AX maturity assessment and leveling",
+      "detail2": "Detailed analysis of current AI usage among practitioners",
+      "detail3": "Mapping and dissecting workflow structures",
+      "detail4": "Identifying ROI-driven automation opportunities",
+      "output1": "AX Opportunity Map",
+      "output2": "Target departments & tasks selected",
+      "output3": "12-week project scope"
+    },
+    "step2": {
+      "tagline": "No two companies share the same AX roadmap.",
+      "subtitle": "AX Blueprint Design",
+      "expandedSubtitle": "Design combining education + build + practice",
+      "detail1": "Company-specific 12-week AX transformation roadmap",
+      "detail2": "Department-level AX application scenario design",
+      "detail3": "Integrated education + build curriculum design",
+      "detail4": "AX operational architecture structure",
+      "output1": "12-Week Execution Roadmap",
+      "output2": "Department AX Scenarios",
+      "output3": "System Design Blueprint"
+    },
+    "step3": {
+      "tagline": "We don't build it for you.\nWe build it together so your team can build on their own.",
+      "subtitle": "Co-Building &\nLive Implementation",
+      "expandedSubtitle": "Simultaneous execution of practical training and system build",
+      "detail1": "Work process redesign & automation build",
+      "detail2": "AI Agent · n8n · Dify · VibeCoding-based system implementation",
+      "detail3": "RAG · LLM · RPA · Internal system integration",
+      "detail4": "Field-adapted, production-ready builds",
+      "output1": "Live AI Systems in Production",
+      "output2": "Practitioner-Led Operations Structure"
+    },
+    "step4": {
+      "tagline": "AX is complete when it runs without us.",
+      "subtitle": "Adoption & Scale",
+      "expandedSubtitle": "AX is complete when it runs without us.",
+      "detail1": "Practitioner operation guides & standard manuals",
+      "detail2": "Internal AX Champion training and operational framework",
+      "detail3": "Enhancement roadmap for continuous improvement",
+      "output1": "Self-Sustaining AX Operations",
+      "output2": "Scalable Automation Assets"
+    },
+    "part3": {
+      "title1": "We don't just introduce AI —",
+      "title2": "we change",
+      "title3": "your 'work structure'",
+      "subtitle1": "NextGenAI doesn't stop at consulting.",
+      "subtitle2": "We take responsibility for systems that actually work in practice."
+    },
+    "testimonial1": {
+      "title": "The balance between theory and practice was perfect",
+      "subtitle": "Training I could apply to my job immediately",
+      "quote": "I took the Figma Site training — I knew about it but had never used it, so it was really valuable to learn. NotebookLM was new to me, and I can see it being very useful when picking up new tools. It was great to learn things I didn't know despite working in design.",
+      "role": "Design Team Member",
+      "company": "Game Company",
+      "employees": "40+ employees"
+    },
+    "testimonial2": {
+      "title": "Applied N8N automation to my work immediately",
+      "subtitle": "I could learn even complex tools step by step",
+      "quote": "N8N is more complex than other AI tools, but being able to learn from initial setup step by step was very helpful. The training went beyond simple usage to how to apply it to actual work, which was a great help.",
+      "role": "Operations Team Member",
+      "company": "Game Company",
+      "employees": "40+ employees"
+    },
+    "testimonial3": {
+      "title": "My approach to prompts changed completely",
+      "subtitle": "The quality of my work outputs improved along with it",
+      "quote": "As my understanding of effective questioning improved, my overall work utilization and quality of outputs improved together. Learning prompt techniques by type meant I could apply them directly to real work.",
+      "role": "Marketing Team Member",
+      "company": "E-commerce Company",
+      "employees": "100+ employees"
+    },
+    "testimonial4": {
+      "title": "Team-customized training meant immediate application",
+      "subtitle": "Content that fit perfectly with our team's work",
+      "quote": "Running it at the team level rather than group training meant I could ask questions as they came up. Working through the challenges we actually face in our work meant we could learn concrete action plans rather than just suggestions.",
+      "role": "Operations Team Member",
+      "company": "E-commerce Company",
+      "employees": "150+ employees"
+    }
+  },
+  "cta": {
+    "title1": "AI Innovation,",
+    "title2": "Start",
+    "title3": " Today",
+    "subtitle": "With NextGenAI,\nAI becomes 'results,' not just 'adoption.'",
+    "button1": "Book a Free Consultation",
+    "button2": "Download Service Overview"
+  },
+  "footer": {
+    "desc": "NextGen AI — redefining the AI Experience.\nWe partner with enterprises through every step of AI adoption and implementation.",
+    "company": "NextGen AI Co., Ltd.",
+    "bizno": "Business Reg. No.: 557-86-03716",
+    "ceo": "CEOs: Min-Seo Kang, Do-Kyung Kim",
+    "address": "Address: 914, Lead One Center, 91 Yangsan-ro, Yeongdeungpo-gu, Seoul",
+    "services": "Services",
+    "consulting": "AI Consulting",
+    "education": "AI Training",
+    "solutions": "AI Solutions",
+    "companyMenu": "Company",
+    "aboutUs": "About Us",
+    "blog": "Blog",
+    "copyright": "© Copyrights by NextGen AI. All Rights Reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Sharing AI innovation and business insights",
+    "heroTitle": "AI Insights That Shape Your Business Tomorrow",
+    "heroSubtitle": "Go beyond information — gain competitive advantage through real-world business applications.",
+    "readMore": "Read More",
+    "error": "An error occurred while loading the blog.",
+    "empty": "No posts yet.",
+    "notFound": "Post not found.",
+    "backToList": "Back to List",
+    "minRead": " min read",
+    "categoryAll": "All"
+  },
+  "cases": {
+    "heroTitle": "Wondering where to start with AI adoption?",
+    "heroSubtitle": "From strategies that reduce implementation failure to post-build optimization, see the AX roadmaps of leading companies.",
+    "downloadCta": "Download AI Case Studies",
+    "readMore": "Read More",
+    "error": "An error occurred while loading cases.",
+    "empty": "No cases yet.",
+    "ctaTitle1": "Transform Your Business",
+    "ctaTitle2": "with NextGen AI",
+    "ctaButton": "Inquire About Adoption",
+    "service1": "AI Integrated Management Platform 'GenStream' (Coming Soon)",
+    "service2": "AI Education Service 'The Class AI'",
+    "service3": "AI Knowledge Content 'Blog'",
+    "goTo": "Visit",
+    "kpi1Label": "Active Agents",
+    "kpi1Desc": "Operating AI agents & automation systems",
+    "kpi2Label": "Renewal Rate",
+    "kpi2Desc": "Project contract renewal rate",
+    "kpi3Label": "End-to-End Share",
+    "kpi3Desc": "Full-cycle AX project share (Strategy → Build → Operate)"
+  },
+  "edu": {
+    "badge": "Enterprise AI Training",
+    "headline": "NextGen AI's corporate training\nis \"training that changes how you work.\"",
+    "subtext": "We don't do training that ends with theory.\nRedesign your work with real AI Thinking,\nand automate repetitive tasks with AI to drive results.",
+    "ctaPrimary": "Talk to an AI Expert",
+    "ctaSecondary": "Get the Curriculum",
+    "chartTitle": "AI Capability Change",
+    "chartBefore": "Before Training",
+    "chartAfter": "After Training",
+    "chartMetric1": "AI Understanding",
+    "chartMetric2": "Tool Proficiency",
+    "chartMetric3": "Prompt Skills",
+    "chartMetric4": "Work Application",
+    "chartSummary": "Average AI Capability Improvement",
+    "flipCard": {
+      "title": "Your inquiry has been received!",
+      "description": "An AI expert will be in touch shortly.\nWe'll prepare a customized curriculum for you.",
+      "backButton": "Back to Chart"
+    },
+    "socialProofTitle": "Training Results Proven by Numbers",
+    "metricSatisfaction": "Average Training Satisfaction",
+    "metricRepurchase": "Want Repeat / Advanced Training",
+    "metricStudents": "Cumulative Corporate Training Graduates",
+    "partnersTitle": "AI Training Partners",
+    "testimonialWindowTitle": "Client Reviews",
+    "testimonial1": {
+      "quote": "Vague AI adoption became concrete guidelines for our company.",
+      "description": "Before the training, I knew about AI but had no idea how to embed it in actual work. Through NextGenAI's training, we were able to create usage guidelines tailored to each department.",
+      "author": "HR Manager at Financial Company D",
+      "role": "AI Corporate Training Graduate"
+    },
+    "testimonial2": {
+      "quote": "Not only do they create customized curricula, but the detailed learning coaching and management is a huge draw.",
+      "description": "Starting with online training for all employees, we expanded to holding company staff and now to all affiliates.",
+      "author": "HR Head at Large Corporate Holding Company",
+      "role": "Company-Wide AI Training"
+    },
+    "testimonial3": {
+      "quote": "It was only a month and a half from our first meeting to pulling off an event this big — thanks to your active support, effort, and capability.",
+      "description": "You were instrumental in making this hackathon a success. The excellent specialist coaches, special lecture speakers, thorough materials preparation, and quick work from the operations team were all impressive.",
+      "author": "Doo-Hwan Kim, POSCO Human Resource Development Institute",
+      "role": "AI Hackathon Operations"
+    },
+    "testimonial4": {
+      "quote": "After AI training, the team's overall work efficiency improved noticeably. Repetitive tasks were reduced by over 50%.",
+      "description": "Rather than just teaching tool usage, designing the actual workflows we could apply to our work meant we saw results immediately after training.",
+      "author": "Operations Team Lead at E-commerce Company M",
+      "role": "AI Work Automation Training"
+    },
+    "testimonial5": {
+      "quote": "From executives to practitioners, we now have a common understanding and language around AI.",
+      "description": "Company-wide AI literacy training smoothed inter-departmental communication and sped up alignment on AI projects. It became a catalyst for changing our organizational culture.",
+      "author": "DX Promotion Team Lead at Manufacturing Company S",
+      "role": "Company-Wide AI Literacy Training"
+    },
+    "painpoint1": {
+      "question": "Worried about security incidents?",
+      "solution": "AI Governance Strategy Development",
+      "description": "We simultaneously build enterprise data security and AI ethics frameworks."
+    },
+    "painpoint2": {
+      "question": "Does each department need different capabilities?",
+      "solution": "Role-Specific Customized Thinking Process",
+      "description": "We provide curricula optimized for marketing, sales, HR, development, and more."
+    },
+    "painpoint3": {
+      "question": "Hard to measure training effectiveness?",
+      "solution": "Data-Driven AI-Q Capability Diagnostic Report",
+      "description": "We quantify and visualize capability changes before and after training across 6 metrics."
+    },
+    "problem1": {
+      "title": "Don't know where to start",
+      "subtitle": "No clear AI adoption direction",
+      "quote": "We're using ChatGPT... but I don't know how to apply it to our actual work.",
+      "detail1": "Tools exist but aren't connected to workflows",
+      "detail2": "Can't scale from individual use to team/organizational use"
+    },
+    "problem2": {
+      "title": "Using tools at only 30% capacity",
+      "subtitle": "Lots of features but only copy-paste level usage",
+      "quote": "We use GPT, Gemini... but just throw questions at it and copy-paste.",
+      "detail1": "Not properly using prompt principles, GPTs, automation features",
+      "detail2": "Used only as a 'search replacement' rather than a productivity tool"
+    },
+    "problem3": {
+      "title": "Feeding data to AI is the hardest part",
+      "subtitle": "Don't know how to delegate work to AI",
+      "quote": "We have lots of materials... but how do we feed them so AI can do the work?",
+      "detail1": "Don't know how to connect documents, Excel, Notion, manuals",
+      "detail2": "Humans end up reorganizing everything again"
+    },
+    "problem4": {
+      "title": "Can't move from individual to organizational use",
+      "subtitle": "Everyone uses it individually, nothing is shared, nothing becomes a system",
+      "quote": "A few people use it well... but overall team productivity is the same.",
+      "detail1": "Relying on individual know-how",
+      "detail2": "Not structurally embedded in work processes"
+    },
+    "problem5": {
+      "title": "Results aren't visible, so momentum fades",
+      "subtitle": "Can't prove the effect of training/adoption",
+      "quote": "We've adopted AI... but so what has actually improved by how much?",
+      "detail1": "ROI, time savings, throughput improvements aren't measured",
+      "detail2": "Ends up disappearing like a trend"
+    },
+    "problemCommon": {
+      "label": "The common cause of these problems",
+      "before": "Learning AI as a 'tool' without changing the '",
+      "highlight": "work structure",
+      "after": ".'"
+    },
+    "program1": {
+      "step": "Step 1",
+      "title": "AI Thinking Process",
+      "subtitle": "Redesign work in a way that lets you delegate to AI",
+      "description": "Rather than bringing existing problems as-is,\nwe redefine how each task can be delegated to AI.",
+      "detail1": "What data needs to be input and how",
+      "detail2": "What AI can do and what humans still need to do",
+      "detail3": "How far automation can go",
+      "conclusion": "We establish these criteria first,\nthen design actual working workflows and scenarios with AI."
+    },
+    "program2": {
+      "step": "Step 2",
+      "title": "Role-Specific Practical Work",
+      "subtitle": "Automate different work across departments in their own ways",
+      "description": "For sales, marketing, management support, and more —\nwe build AI workflows that match actual work processes.",
+      "detail1": "Sales: Customer data analysis and automated proposal generation",
+      "detail2": "Marketing: From content planning to performance analysis",
+      "detail3": "Admin: Automated reports, meeting minutes, schedule management",
+      "conclusion": "We design practical automation scenarios\ndirectly tied to each department's KPIs."
+    },
+    "program3": {
+      "step": "Step 3",
+      "title": "AI Governance & Security",
+      "subtitle": "Set the 'enterprise standard' for AI usage",
+      "description": "Beyond just using tools,\nwe build a framework for safe and sustainable usage.",
+      "detail1": "Enterprise data security guidelines",
+      "detail2": "AI usage ethics framework and policy design",
+      "detail3": "Department-level access and permission management",
+      "conclusion": "We provide a governance framework\nfor sustainable AI adoption."
+    },
+    "process1": {
+      "step": "01",
+      "title": "Pre-Diagnosis",
+      "subtitle": "AI-Q Capability Assessment",
+      "description": "We don't start with training.\nWe first diagnose the team and organization's AI readiness level,\nthen clarify where and how things need to change."
+    },
+    "process2": {
+      "step": "02",
+      "title": "Strategy Development",
+      "subtitle": "Customized Curriculum Design",
+      "description": "Based on diagnostic results,\nwe design the most effective training strategy and curriculum for your organization.\nCompletely customized by department, role, and objective."
+    },
+    "process3": {
+      "step": "03",
+      "title": "Customized Training",
+      "subtitle": "Role- and Level-Specific Practical Training",
+      "description": "Not generic lectures —\npractice-focused training applied directly to each person's actual work.\nWe build actual automations and work structures during the training."
+    },
+    "process4": {
+      "step": "04",
+      "title": "Post-Evaluation",
+      "subtitle": "Performance Analysis & Governance Guide",
+      "description": "After training ends,\nwe analyze capability changes and business outcomes in numbers,\nand provide AI usage guides and frameworks for ongoing operation."
+    },
+    "enterprise": {
+      "headline1": "The larger the organization,",
+      "headline2": " the more deliberate and strategic AI adoption must be"
+    },
+    "core": {
+      "whyDifferent1": "Why does NextGenAI's training",
+      "whyDifferent2": "produce different results?",
+      "answer": "Because it's an organizational transformation system, not just training.",
+      "mostFocus": "Most AI training focuses on \"teaching well.\"",
+      "ngaFocus1": "NextGenAI focuses on ",
+      "ngaFocus2": "\"creating structures where work actually changes.\"",
+      "ngaFocus3": "",
+      "transition": "That's why we designed it this way.",
+      "enterpriseSecurity": "Protect enterprise security while maximizing productivity",
+      "enterpriseSecurityDesc1": "We don't just teach 'how to use GPT well.'",
+      "enterpriseSecurityDesc2": "We help you safely leverage your company's data",
+      "enterpriseSecurityDesc3": "and establish the 'enterprise standards' for how to manage it.",
+      "enterpriseKpi": "Practical workflows directly tied to department KPIs",
+      "enterpriseKpiDesc1": "For marketing, HR, sales, and more.",
+      "enterpriseKpiDesc2": "We provide customized curricula that drive results (ROI) for each department."
+    },
+    "coreProgram": {
+      "step1": {
+        "title": "AI Thinking Process",
+        "subtitle": "Redesign work so you can delegate to AI",
+        "description": "Rather than bringing existing problems as-is,\nwe redefine how each task can be delegated to AI.",
+        "hover1": "What data needs to be input and how",
+        "hover2": "What AI can do vs. what humans need to do",
+        "hover3": "How far automation can extend",
+        "conclusion": "We establish these criteria first,\nthen design actual working workflows and scenarios with AI."
+      },
+      "step2": {
+        "title": "Role-Specific Practical Work",
+        "subtitle": "Automate different work across departments in their own ways",
+        "description": "For sales, marketing, management support —\nwe build AI workflows matching actual work processes.",
+        "hover1": "Sales: Customer data analysis and automated proposal generation",
+        "hover2": "Marketing: From content planning to performance analysis",
+        "hover3": "Admin: Automated reports, meeting minutes, schedule management",
+        "conclusion": "We design practical automation scenarios\ndirectly tied to each department's KPIs."
+      },
+      "step3": {
+        "title": "AI Governance & Security",
+        "subtitle": "Set the 'enterprise standard' for AI usage",
+        "description": "Beyond just using tools,\nwe build a framework for safe and sustainable usage.",
+        "hover1": "Enterprise data security guidelines",
+        "hover2": "AI usage ethics framework and policy design",
+        "hover3": "Department access and permission management",
+        "conclusion": "We provide a governance framework\nfor sustainable AI adoption."
+      }
+    },
+    "evidence": {
+      "headline1": "NextGen",
+      "headline2": "AI",
+      "headline3": " measures",
+      "headline4": "each company",
+      "headline5": ", each team, each person's ",
+      "headline5Mobile": "each team, each person's ",
+      "headline6": "AI capability",
+      "headline7": "",
+      "headline8": "quantitatively",
+      "measurePrefix": "quantitatively",
+      "measureHighlight": "measures",
+      "headline9": ".",
+      "subheadline": "This is not a simple satisfaction survey.",
+      "description1": "Based on 6 core metrics, we provide NGA's",
+      "description2": "pre/post capability change analysis reports.",
+      "metric1": "AI Understanding",
+      "metric2": "Tool Proficiency",
+      "metric3": "Work Application Rate",
+      "metric4": "Automation Usage Level",
+      "metric5": "Work Productivity Change",
+      "metric6": "Organizational Spread Contribution",
+      "avgImprovement": "Average AI Capability Improvement",
+      "productivity": "Work Productivity Increase",
+      "spreadRate": "Organizational Spread Rate"
+    },
+    "aiq": {
+      "avgScore": "Company-Wide Average AI-Q",
+      "participants": " participants",
+      "examStatus": "Exam Status",
+      "aiTalent": "AI Talent",
+      "total": "Total",
+      "distribution": "Capability Distribution",
+      "sixMetrics": "AI-Q 6 Core Capability Metrics",
+      "companyBasis": "*Company-wide basis",
+      "beforeAfter": "Capability Change Before/After Training",
+      "avgGrowth": "Average +54% Growth",
+      "aiUnderstanding": "AI Understanding",
+      "toolProficiency": "Tool Proficiency",
+      "workApplication": "Work Application",
+      "automationLevel": "Automation Usage",
+      "productivityChange": "Productivity Change",
+      "orgSpread": "Organizational Spread"
+    },
+    "instructor": {
+      "headline1": "SNU · KAIST · Yonsei",
+      "headline2": " alumni, master's and doctoral AI experts",
+      "headline3": "design ",
+      "headline4": "practical AI training",
+      "headline5": " tailored to your company's work.",
+      "videoTitle1": "Lectures from ",
+      "videoTitle2": "AI Experts"
+    },
+    "footerCta": {
+      "subtitle": "From 10-person startups to enterprises of 600+",
+      "headline1": "We provide the optimal solution",
+      "headline2": "for your organization's scale",
+      "description": "Consult with a NEXTGEN AI expert today"
+    },
+    "instructor1": {
+      "name": "Do-Kyung Kim",
+      "title": "Co-founder",
+      "cred1": "Yonsei CS · Yonsei AI PhD Program",
+      "cred2": "Current SNU AI Instructor · Former Yanadoo AI Crew",
+      "cred3": "Head of AX & AI Consulting Strategy"
+    },
+    "instructor2": {
+      "name": "Min-Seo Kang",
+      "title": "Co-founder",
+      "cred1": "KAIST AI PhD · Former Harvard·SK·Yanadoo",
+      "cred2": "Current SNU AI Expert Program Instructor",
+      "cred3": "Head of AI Content Marketing & AX Strategy"
+    },
+    "instructor3": {
+      "name": "Won-Seok Lee",
+      "title": "CTO / Automation Architect",
+      "cred1": "Yonsei Mechanical Eng. · Yonsei AI Graduate School",
+      "cred2": "EBS n8n Automation Expert Instructor",
+      "cred3": "Head of Enterprise AX Automation Architecture"
+    },
+    "instructor4": {
+      "name": "Tae-Jun Kang",
+      "title": "AI Researcher",
+      "cred1": "Minjok Leadership · Yonsei · AI MS · AI PhD Program",
+      "cred2": "Korean LLM · Text Generation · EBS AI Instructor",
+      "cred3": "LangGram Language Model Developer"
+    },
+    "instructor5": {
+      "name": "Byung-Hoon Lee",
+      "title": "AI Engineer (Data & Modeling)",
+      "cred1": "Yonsei Medical School Engineering MS (Medical AI · Time Series)",
+      "cred2": "Data Modeling · Preprocessing · AI Pipelines · EBS Instructor",
+      "cred3": "Enterprise Data-Driven AI System Build"
+    },
+    "instructor6": {
+      "name": "Young-Joo Lee",
+      "title": "AI Content Strategist",
+      "cred1": "SNU · SNU Hospital CRC",
+      "cred2": "Prompt Engineering",
+      "cred3": "AI Content Strategy & Planning"
+    }
+  },
+  "axp": {
+    "badge": "AX Partners Program",
+    "hero": {
+      "title1": "Skip the 6-month consulting,",
+      "title2": "build a ",
+      "title3": "'Results Cycle'",
+      "title4": "in 12 weeks.",
+      "subtitle1": "NextGenAI AX Partners",
+      "subtitle2": "builds 'actually operating' work systems in 12-week cycles,",
+      "subtitle3": "then expands to the next 12 weeks after confirming results.",
+      "emphasis": "Not a PoC — we build structures that operate.",
+      "keypoint1": "12-Week Execution Program",
+      "keypoint2": "Workflow diagnosis in weeks 1–2",
+      "keypoint3": "KPI-driven outcome design",
+      "cta1": "Apply for Free AX Diagnosis",
+      "cta2": "View Success Cases",
+      "h1": {
+        "line1": "Skip the 6-month consulting,",
+        "line2": {
+          "before": "build a ",
+          "after": "in 12 weeks."
+        },
+        "highlight": "'Results Cycle'"
+      },
+      "h2": {
+        "line1": "NextGenAI AX Partners",
+        "line2": "builds 'actually operating' work systems in 12-week cycles,",
+        "line3": "then expands to the next 12 weeks after confirming results."
+      },
+      "subCopy": "Not a PoC — we build structures that operate.",
+      "keyPoint1": "12-Week Execution Program",
+      "keyPoint2": "Workflow diagnosis in weeks 1–2",
+      "keyPoint3": "KPI-driven outcome design",
+      "ctaDiagnosis": "Apply for Free AX Diagnosis",
+      "ctaCases": "View Success Cases"
+    },
+    "roadmap": {
+      "step1": {
+        "title": "Diagnose",
+        "desc1": "Analyze current workflow &",
+        "desc2": "identify automation priorities"
+      },
+      "step2": {
+        "title": "Design",
+        "desc1": "AI agent &",
+        "desc2": "workflow architecture"
+      },
+      "step3": {
+        "title": "Build",
+        "desc1": "MVP build & test",
+        "desc2": "in real operating environment"
+      },
+      "step4": {
+        "title": "Adopt",
+        "desc1": "KPI validation &",
+        "desc2": "internalize operating processes"
+      }
+    },
+    "problem": {
+      "headline": "Adopted AI but your ways of working haven't changed?",
+      "item1": "Using ChatGPT, but reports are still made by hand.",
+      "item2": "PoC succeeded, but nothing changed in actual work.",
+      "item3": "When the person who built automation is gone, work stops.",
+      "item4": "Spending AI budget but can't explain ROI.",
+      "highlight": {
+        "before": "If",
+        "count": "2 or more",
+        "mid": "of these apply, you're in the",
+        "experience": "\"AI Experience\"",
+        "after": "stage, not AI transformation."
+      }
+    },
+    "solution": {
+      "headline": {
+        "line1": "AX Partners is not consulting —",
+        "highlight": "it's an execution program that changes your work systems",
+        "suffix": "."
+      },
+      "card1": {
+        "title": "ROI-based automation task selection",
+        "desc": "Start with highest-impact workflows"
+      },
+      "card2": {
+        "title": "Build from tasks that show results within 3 months",
+        "desc": "Secure organizational trust with fast results"
+      },
+      "card3": {
+        "title": "Implement actually operating workflows",
+        "desc": "Real-use systems, not PoCs"
+      },
+      "card4": {
+        "title": "Slack / Notion / Google / ERP integration",
+        "desc": "Seamlessly integrated with existing tools"
+      },
+      "card5": {
+        "title": "Handover to structure the ops team can run",
+        "desc": "Internalization-centered design"
+      },
+      "bottom1": "We leave behind ",
+      "bottom2": "systems, not reports."
+    },
+    "thinking": {
+      "badge": "Our Unique Methodology",
+      "title": "NextGenAI Thinking Process",
+      "subtitle1": "Most AI projects fail not because of technology.",
+      "subtitle2": "\"Because they start without defining what to delegate to AI.\"",
+      "subtitle3": "",
+      "philosophy1": "Competitive advantage in the AI era is not",
+      "philosophy2": "how well you use AI,",
+      "philosophy3": "but the ability to decide what to delegate to AI",
+      "philosophy4": ".",
+      "step1": {
+        "name": "OBSERVE",
+        "title": "Observe",
+        "desc": "Break down every task"
+      },
+      "step2": {
+        "name": "CLASSIFY",
+        "title": "Classify",
+        "desc": "Categorize: Automate / AI-Collaborate / Human"
+      },
+      "step3": {
+        "name": "DESIGN",
+        "title": "Design",
+        "desc": "Structure design"
+      },
+      "step4": {
+        "name": "ITERATE",
+        "title": "Iterate",
+        "desc": "Build and continuously improve"
+      }
+    },
+    "classification": {
+      "header": {
+        "line1": "We start by dividing work into",
+        "highlight": "'4 types'",
+        "line2": "",
+        "desc1": "We don't automate everything.",
+        "desc2": "Some work gets automated, some is AI-collaborated,",
+        "desc3": "and some still needs to be done by humans.",
+        "desc4": "This distinction determines the success or failure of AX."
+      },
+      "title": "Rather than 'what to automate,'",
+      "subtitle": "we define 'what NOT to automate'",
+      "suffix": "first.",
+      "card1": {
+        "badge": "Human-Only Zone",
+        "title": "Human Domain",
+        "desc": "Strategy and judgment remain in the human domain.",
+        "tag1": "Low repetition",
+        "tag2": "Judgment critical",
+        "tag3": "AI for analysis only",
+        "detail": "Negotiation, strategy development, performance evaluation — areas requiring sophisticated judgment"
+      },
+      "card2": {
+        "badge": "AI + Human Workflow",
+        "title": "AI Collaboration",
+        "desc": "AI creates drafts, humans make final decisions.",
+        "tag1": "High repetition",
+        "tag2": "Judgment needed",
+        "tag3": "AI + approval structure",
+        "detail": "Reports, proposal drafts, customer service — AI Agent + approval workflow"
+      },
+      "card3": {
+        "badge": "Quick Assist",
+        "title": "Efficiency",
+        "desc": "Not frequent, but handle annoying tasks fast.",
+        "tag1": "Irregular",
+        "tag2": "Rule-based",
+        "tag3": "One-button done",
+        "detail": "Form filling, data organization — button-based automated draft generation"
+      },
+      "card4": {
+        "badge": "100% Automation Zone",
+        "title": "Full Automation",
+        "desc": "Repetitive, rule-based tasks — handled by the system.",
+        "tag1": "Daily repetition",
+        "tag2": "Clear rules",
+        "tag3": "Zero human involvement",
+        "detail": "Notifications, data collection, report generation — n8n + schedule-based full automation"
+      },
+      "guide": {
+        "title": "This is how we classify your team's work",
+        "desc": "Look at just these two factors to immediately know where each task belongs.",
+        "freq": "Repetition Frequency",
+        "freq1": "Daily",
+        "freq2": "Weekly",
+        "freq3": "Monthly",
+        "freq4": "Irregular",
+        "complexity": "Judgment Complexity",
+        "complexity1": "Rule-based",
+        "complexity2": "Experience needed",
+        "complexity3": "Expert judgment",
+        "complexity4": "Creative judgment"
+      },
+      "philosophy1": "Rather than ",
+      "philosophy2": "\"what to automate,\"",
+      "philosophy3": "we",
+      "philosophy4": "define 'what NOT to automate' first.",
+      "bottom1": "That's our way.",
+      "bottom2": "We don't automate blindly — ",
+      "bottom3": "we redesign the nature of work first."
+    },
+    "12week": {
+      "badge": "12-Week Execution Cycle",
+      "title1": "AX is ",
+      "title2": "'per department'",
+      "title3": "",
+      "title4": "a 12-week transformation program",
+      "step1": {
+        "title": "Capability Diagnosis & Work Dissection",
+        "badge": "AX Diagnosis",
+        "week": "Weeks 1–2",
+        "quote": "\"What can be done, by whom, and how far\"",
+        "check1": "AI usage level diagnosis",
+        "check2": "Workflow breakdown",
+        "check3": "ROI priority selection",
+        "output": "👉 AX Diagnostic Report"
+      },
+      "step2": {
+        "title": "Structure Design & Practice Preparation",
+        "badge": "Automation Design",
+        "week": "Weeks 3–4",
+        "quote": "\"This for AI, this for automation, this for humans\"",
+        "check1": "Work structure redesign",
+        "check2": "Workflow design",
+        "check3": "Practice task selection",
+        "output": "👉 System Blueprint"
+      },
+      "step3": {
+        "title": "Co-Built Automation",
+        "badge": "Co-Building",
+        "badge2": "Key Phase",
+        "week": "Weeks 5–8",
+        "quote": "\"Watch → Follow along → Do it yourself\"",
+        "check1": "Build alongside practitioners",
+        "check2": "AI Agent / n8n implementation",
+        "check3": "Slack, Notion integration",
+        "output": "👉 Automation System"
+      },
+      "step4": {
+        "title": "Operations Adoption & Independence",
+        "badge": "Internalization",
+        "week": "Weeks 9–12",
+        "quote": "\"When it runs without us\"",
+        "check1": "Operations stabilization",
+        "check2": "Performance measurement & improvement",
+        "check3": "Internal guide documentation",
+        "output": "👉 Operations Framework + Guide"
+      },
+      "bottom": "When 12 weeks ends, there will always be at least one thing 'actually running.'"
+    },
+    "venn": {
+      "title1": "AX Partners changes ",
+      "title2": "'Systems'",
+      "title3": " and ",
+      "title4": "'People'",
+      "title5": "simultaneously",
+      "process": {
+        "_value": "Process",
+        "desc1": "12-week cycle +",
+        "desc2": "Thinking Process"
+      },
+      "system": {
+        "_value": "System",
+        "desc1": "Actually running",
+        "desc2": "automation / AI workflows"
+      },
+      "people": {
+        "_value": "People",
+        "desc1": "Mindset, design capability,",
+        "desc2": "operational skills"
+      },
+      "center1": "Sustainable",
+      "bottom": "All three must change together for ",
+      "bottom2": "sustainable AX",
+      "bottom3": "."
+    },
+    "case": {
+      "title1": "We prove it with ",
+      "title2": "results",
+      "category1": "Operations/Planning",
+      "company1": "Company A",
+      "result1": "87% reduction",
+      "headline1": "8 hours/week → 1 hour",
+      "desc1": "Planning team report automation. Auto-generated report documents with automatic data visualization.",
+      "category2": "Customer Support",
+      "company2": "Company B",
+      "result2": "Response within 5 sec",
+      "headline2": "Customer Service Automation & Knowledge-Based RAG",
+      "desc2": "Built 24/7 response system with internal document RAG chatbot, 90% auto-response for basic inquiries.",
+      "category3": "Management/Admin",
+      "company3": "Company C",
+      "result3": "3 days → Real-time",
+      "headline3": "Monthly Finance Compilation",
+      "desc3": "Auto-collection of ERP/settlement/revenue data for real-time financial dashboard updates, completely eliminating manual compilation.",
+      "viewMore": "View Details",
+      "moreButton": "View More Case Studies"
+    },
+    "diff": {
+      "title1": "What makes AX Partners ",
+      "title2": "different?",
+      "header": {
+        "category": "Category",
+        "general": "General Consulting / SI",
+        "ax": "AX Partners"
+      },
+      "row1": {
+        "category": "Goal",
+        "general": "Problem analysis",
+        "ax": "Work structure transformation"
+      },
+      "row2": {
+        "category": "Start",
+        "general": "Requirements definition",
+        "ax": "Work observation & capability diagnosis"
+      },
+      "row3": {
+        "category": "Approach",
+        "general": "Outsourced development",
+        "ax": "Co-Building with practitioners"
+      },
+      "row4": {
+        "category": "Deliverables",
+        "general": "Reports / outputs",
+        "ax": "Operating systems + internal capability"
+      },
+      "row5": {
+        "category": "Operator",
+        "general": "Outsourced / specific person",
+        "ax": "Entire team"
+      },
+      "row6": {
+        "category": "Scalability",
+        "general": "Outsource again",
+        "ax": "Expand internally on your own"
+      },
+      "row7": {
+        "category": "Result",
+        "general": "PoC / one-time",
+        "ax": "Operate + Internalize + Reuse"
+      }
+    },
+    "cta": {
+      "title1": "This time, let's use AI ",
+      "title2": "'properly.'",
+      "title3": "",
+      "subtitle": "In 12 weeks, transform one department into 'an organization that works with AI.'",
+      "button1": "Apply for Free AX Diagnosis",
+      "button2": "Contact Us",
+      "form": {
+        "title": {
+          "diagnosis": "Apply for Free AX Diagnosis",
+          "contact": "Contact Us"
+        },
+        "desc": {
+          "diagnosis": "Workflow structure diagnosis for the 12-week execution program",
+          "contact": "Leave your question and a representative will contact you."
+        },
+        "company": {
+          "_value": "Company/Organization Name *",
+          "placeholder": "e.g., NextGen AI"
+        },
+        "name": {
+          "_value": "Contact Name *",
+          "placeholder": "e.g., John Smith"
+        },
+        "phone": {
+          "_value": "Phone Number *",
+          "placeholder": "e.g., +82-10-1234-5678"
+        },
+        "email": {
+          "_value": "Email *",
+          "placeholder": "e.g., example@company.com"
+        },
+        "message": {
+          "_value": "Message",
+          "placeholder": "Enter your inquiry here"
+        },
+        "privacy": "I agree to the collection and use of personal information. *",
+        "submit": "Submit"
+      }
+    }
+  },
+  "form": {
+    "contact": {
+      "title": "Contact Us",
+      "heading": "Enterprise Training Inquiry",
+      "desc1": "NextGen AI has solved the training challenges of many companies with our customized training expertise.",
+      "desc2": "Fill in the information below and we'll get back to you quickly to help solve your challenges together.",
+      "company": {
+        "_value": "Company Name",
+        "placeholder": "Company/Organization Name"
+      },
+      "companyType": {
+        "_value": "Company Type",
+        "placeholder": "Select",
+        "large": "Large Enterprise",
+        "mid": "Mid-size Company",
+        "small": "Small Business",
+        "startup": "Startup",
+        "public": "Public Institution",
+        "edu": "Educational Institution",
+        "other": "Other"
+      },
+      "name": {
+        "_value": "Full Name",
+        "placeholder": "John Smith"
+      },
+      "phone": {
+        "_value": "Phone Number",
+        "placeholder": "+82-10-0000-0000"
+      },
+      "department": {
+        "_value": "Department",
+        "placeholder": "HR Department"
+      },
+      "position": {
+        "_value": "Position",
+        "placeholder": "Manager"
+      },
+      "email": {
+        "_value": "Work Email",
+        "placeholder": "example@company.com"
+      },
+      "topic": {
+        "_value": "Topic",
+        "placeholder": "Select",
+        "basic": "AI Fundamentals",
+        "genai": "Generative AI Usage",
+        "automation": "AI Work Automation",
+        "strategy": "AI Strategy Consulting",
+        "custom": "Customized Training",
+        "other": "Other"
+      },
+      "visitPath": {
+        "_value": "How did you find us?",
+        "placeholder": "Please select",
+        "search": "Search Engine (Google, Naver, etc.)",
+        "social": "Social Media",
+        "referral": "Referral",
+        "news": "News/Article",
+        "previous": "Previous Training",
+        "other": "Other"
+      },
+      "message": {
+        "_value": "(Optional) Other Inquiries",
+        "desc": "Detailed description of desired training content and target audience enables more efficient and accurate consultation.",
+        "placeholder": "Enter your inquiry"
+      },
+      "privacy": {
+        "_value": "(Required) Personal Information Collection Consent",
+        "desc": "I consent to the collection of personal information for consultation and service provision."
+      },
+      "marketing": {
+        "_value": "(Optional) Marketing Communication Consent",
+        "desc": "By consenting to marketing communications, you'll be the first to receive newsletters and event news that can help you design your training."
+      },
+      "submit": "Submit",
+      "submitting": "Submitting...",
+      "success": {
+        "title": "Your inquiry has been received",
+        "desc": "We will contact you as soon as possible."
+      },
+      "error": {
+        "title": "An error occurred",
+        "desc": "Please try again later."
+      }
+    },
+    "diagnosis": {
+      "title": "Apply for Free AX Diagnosis",
+      "subtitle": "Workflow structure diagnosis for the 12-week execution program",
+      "step1": "Basic Information",
+      "step2": "Current Assessment",
+      "step3": "Timeline & Budget",
+      "company": {
+        "_value": "Company/Organization Name *",
+        "placeholder": "e.g., NextGen AI"
+      },
+      "employeeCount": {
+        "_value": "Company Size *",
+        "placeholder": "Please select",
+        "1-10": "1-10 employees",
+        "11-50": "11-50 employees",
+        "51-200": "51-200 employees",
+        "201-500": "201-500 employees",
+        "501+": "501+ employees"
+      },
+      "name": {
+        "_value": "Contact Name *",
+        "placeholder": "e.g., John Smith"
+      },
+      "phone": {
+        "_value": "Phone Number *",
+        "placeholder": "e.g., +82-10-1234-5678"
+      },
+      "email": {
+        "_value": "Email *",
+        "placeholder": "e.g., example@company.com"
+      },
+      "department": {
+        "_value": "Department *",
+        "placeholder": "e.g., Strategy Team"
+      },
+      "position": {
+        "_value": "Position *",
+        "placeholder": "e.g., Team Lead"
+      },
+      "aiStatus": {
+        "_value": "Current AI Adoption Status *",
+        "placeholder": "Select current status",
+        "not_started": "Haven't adopted AI yet",
+        "exploring": "Personal use of ChatGPT etc.",
+        "poc_done": "Completed PoC/pilot",
+        "partial": "Applying AI to some workflows",
+        "expanding": "Considering company-wide expansion"
+      },
+      "painPoints": {
+        "_value": "Current Pain Points * (multiple choice)",
+        "manual_reports": "Manual report creation",
+        "poc_failure": "Failed to apply PoC to actual work",
+        "person_dependent": "Key person dependency",
+        "no_roi": "Can't measure ROI",
+        "tool_fragmentation": "Fragmented AI tools",
+        "training_gap": "Insufficient employee AI skills"
+      },
+      "targetAreas": {
+        "_value": "Desired Automation Areas * (multiple choice)",
+        "document": "Document/Report automation",
+        "data_analysis": "Data analysis automation",
+        "customer_service": "Customer service automation",
+        "workflow": "Business process automation",
+        "internal_knowledge": "Internal knowledge management",
+        "marketing": "Marketing/Content creation"
+      },
+      "budget": {
+        "_value": "Budget Range *",
+        "placeholder": "Please select",
+        "under_30m": "Under $25K",
+        "30m_50m": "$25K – $42K",
+        "50m_100m": "$42K – $85K",
+        "over_100m": "$85K+",
+        "undecided": "Undecided / Needs discussion"
+      },
+      "timeline": {
+        "_value": "Desired Start Date *",
+        "placeholder": "Please select",
+        "asap": "Can start immediately",
+        "1month": "Within 1 month",
+        "3months": "Within 1-3 months",
+        "6months": "Within 3-6 months",
+        "exploring": "Undecided / Exploring"
+      },
+      "additionalInfo": {
+        "_value": "Additional Information (Optional)",
+        "placeholder": "Feel free to describe specific challenges you're facing or results you're hoping for."
+      },
+      "privacy": {
+        "_value": "I agree to the collection and use of personal information. *",
+        "desc": "Collected information will be used solely for AX diagnosis and consultation purposes."
+      },
+      "prev": "Back",
+      "next": "Next",
+      "submit": "Submit Diagnosis Request",
+      "submitting": "Submitting...",
+      "success": {
+        "title": "AX Diagnosis Request Complete",
+        "desc": "A representative will contact you within 1-2 business days."
+      },
+      "error": {
+        "title": "An error occurred",
+        "desc": "Please try again later."
+      }
+    },
+    "validation": {
+      "company": "Please enter company/organization name",
+      "companyType": "Please select company type",
+      "name": "Please enter your name",
+      "phone": "Please enter phone number",
+      "department": "Please enter department name",
+      "position": "Please enter position",
+      "email": "Please enter a valid email address",
+      "topic": "Please select a topic",
+      "visitPath": "Please select how you found us",
+      "privacy": "Please agree to personal information collection",
+      "employeeCount": "Please select company size",
+      "aiStatus": "Please select current AI adoption status",
+      "painPoints": "Please select at least one",
+      "targetAreas": "Please select at least one",
+      "budget": "Please select budget range",
+      "timeline": "Please select desired start date"
+    }
+  }
+}

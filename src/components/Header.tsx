@@ -16,6 +16,7 @@ import {
 
 const languages: { code: Language; name: string; flag: string }[] = [
   { code: "ko", name: "한국어", flag: "🇰🇷" },
+  { code: "en", name: "English", flag: "🇺🇸" },
   { code: "ja", name: "日本語", flag: "🇯🇵" },
 ];
 
@@ -154,7 +155,7 @@ export function Header() {
     >
       <AnnouncementBanner />
 
-      <div className="border-b border-black/10 bg-background/80 backdrop-blur-md">
+      <div className="border-b border-black/5 bg-background/80 backdrop-blur-md">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <Link href="/">
@@ -172,7 +173,7 @@ export function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="group relative text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                  className="group relative text-sm font-medium text-foreground/40 transition-colors hover:text-foreground"
                 >
                   <motion.span
                     initial={{ opacity: 0, y: -20 }}
@@ -181,7 +182,7 @@ export function Header() {
                   >
                     {item.name}
                   </motion.span>
-                  <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-[#8D36EB] to-[#165CFF] transition-all duration-300 group-hover:w-full" />
+                  <span className="absolute -bottom-1 left-0 h-px w-0 bg-gradient-to-r from-[#a855f7] to-[#3b82f6] transition-all duration-300 group-hover:w-full" />
                 </Link>
               ))}
             </nav>
@@ -191,20 +192,40 @@ export function Header() {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <motion.button
-                  className="mr-4 hidden h-10 w-10 items-center justify-center rounded-full bg-foreground text-background transition-colors hover:bg-foreground/90 md:flex"
+                  className="mr-4 hidden h-10 w-10 items-center justify-center rounded-full bg-black text-white md:flex"
+                  style={{ boxShadow: "0 0 0 1px rgba(255,255,255,0.08)" }}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.4, duration: 0.4 }}
+                  whileHover={{
+                    background: "linear-gradient(135deg, #8D36EB, #165CFF)",
+                    boxShadow: "0 0 16px rgba(141,54,235,0.5)",
+                    scale: 1.08,
+                  }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <Globe className="h-5 w-5" />
+                  <Globe className="h-4 w-4" />
                 </motion.button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="z-[100] min-w-[140px] border border-border bg-popover shadow-lg">
+              <DropdownMenuContent
+                align="end"
+                className="z-[100] min-w-[140px] overflow-hidden rounded-xl border-0 p-1 shadow-2xl"
+                style={{
+                  background: "rgba(15, 15, 25, 0.85)",
+                  backdropFilter: "blur(16px)",
+                  WebkitBackdropFilter: "blur(16px)",
+                  boxShadow: "0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08)",
+                }}
+              >
                 {languages.map((lang) => (
                   <DropdownMenuItem
                     key={lang.code}
                     onClick={() => setLanguage(lang.code)}
-                    className={`cursor-pointer ${language === lang.code ? "bg-accent" : ""}`}
+                    className="cursor-pointer rounded-lg px-3 py-2 text-sm font-medium text-white/70 transition-colors hover:bg-white/10 hover:text-white focus:bg-white/10 focus:text-white"
+                    style={language === lang.code ? {
+                      background: "rgba(141,54,235,0.2)",
+                      color: "#c084fc",
+                    } : {}}
                   >
                     <span className="mr-2">{lang.flag}</span>
                     {lang.name}
@@ -233,7 +254,7 @@ export function Header() {
                 {t("nav.contact")}
               </button>
               <button className="p-2" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
-                {isOpen ? <X size={24} /> : <Menu size={24} />}
+                {isOpen ? <X size={22} /> : <Menu size={22} />}
               </button>
             </div>
           </div>
