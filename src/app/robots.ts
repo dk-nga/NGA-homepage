@@ -32,6 +32,11 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/admin/", "/api/"],
       },
       {
+        userAgent: "Yeti",
+        allow: "/",
+        disallow: ["/admin/", "/api/"],
+      },
+      {
         userAgent: "Googlebot",
         allow: "/",
         disallow: ["/admin/", "/api/"],
