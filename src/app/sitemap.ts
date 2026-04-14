@@ -6,8 +6,8 @@ const locales = ["ko", "en", "ja"] as const;
 const defaultLocale = "ko";
 
 function localePath(locale: string, path: string) {
-  const prefix = locale === defaultLocale ? "" : `/${locale}`;
-  return `${BASE_URL}${prefix}${path}`;
+  const normalizedPath = path === "/" ? "" : path;
+  return `${BASE_URL}/${locale}${normalizedPath}`;
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
