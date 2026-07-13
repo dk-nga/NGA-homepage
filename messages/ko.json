@@ -8,7 +8,7 @@
     "cases": "고객사례",
     "about": "회사소개",
     "blog": "블로그",
-    "contact": "문의하기"
+    "contact": "AI교육 문의하기"
   },
   "hero": {
     "title1": "Redefine the",
@@ -184,7 +184,7 @@
     "desc": "AI Experience를 혁신하는 NextGen AI입니다.\n기업의 AI 도입부터 활용까지 전 과정을 함께합니다.",
     "company": "(주) 넥스트젠에이아이",
     "bizno": "사업자번호 : 557-86-03716",
-    "ceo": "대표이사 : 강민서, 김도경",
+    "ceo": "대표이사 : 김도경",
     "address": "주소 : 서울시 영등포구 양산로91 리드원센터 914호",
     "services": "서비스",
     "consulting": "AI 컨설팅",
@@ -232,10 +232,10 @@
     "kpi3Desc": "Full-cycle AX 프로젝트 비중 (전략 → 구축 → 운영)"
   },
   "edu": {
-    "badge": "AI 기업교육",
-    "headline": "넥스트젠AI의 기업교육은\n\"업무가 바뀌는 교육\"입니다.",
-    "subtext": "이론으로 끝나는 교육은 하지 않습니다.\n실전 AI Thinking으로 업무를 재설계하고,\nAI로 반복 업무를 자동화해 성과를 만드세요.",
-    "ctaPrimary": "AI 전문가에게 문의하기",
+    "badge": "삼성금융 · 대법원 · EBS 도입",
+    "headline": "삼성·대법원·EBS가 선택한\n\"업무가 바뀌는 교육\"",
+    "subtext": "지금 이 순간에도 경쟁사 팀원들은 AI로 하루치 업무를 2시간에 끝냅니다.\n교육을 미루는 것은 선택이 아니라 기회비용입니다.\n실전 AI 교육으로 그 격차를 지금 좁히세요.",
+    "ctaPrimary": "무료 상담 신청하기",
     "ctaSecondary": "커리큘럼 받기",
     "chartTitle": "AI 역량 변화",
     "chartBefore": "교육 전",
@@ -287,19 +287,19 @@
       "role": "AI 리터러시 전사교육"
     },
     "painpoint1": {
-      "question": "보안 사고가 걱정되시나요?",
-      "solution": "AI Governance 전략 수립",
-      "description": "기업 데이터 보안과 AI 활용 윤리 체계를 동시에 구축합니다."
+      "question": "AI 안 쓰는 지금, 매달 얼마를 버리고 있나요?",
+      "solution": "AI Governance + 즉시 적용 전략 수립",
+      "description": "AI를 도입하지 않으면 경쟁사 대비 연간 수천만 원의 인건비 손실이 발생합니다. 보안 체계와 실전 적용 전략을 동시에 구축해 리스크 없이 시작합니다."
     },
     "painpoint2": {
-      "question": "부서마다 필요한 역량이 다른가요?",
-      "solution": "직군별 맞춤형 Thinking Process",
-      "description": "마케팅, 영업, HR, 개발 등 각 부서 특성에 최적화된 커리큘럼을 제공합니다."
+      "question": "팀이 AI를 못 쓰는 동안 경쟁사는 5배 빠릅니다",
+      "solution": "직군별 맞춤 AI 워크플로우 구축",
+      "description": "마케팅, 영업, HR, 개발 직군마다 AI 활용 격차는 다릅니다. 지금 교육하지 않으면 그 격차는 6개월 후 따라잡기 불가능한 수준이 됩니다."
     },
     "painpoint3": {
-      "question": "교육 효과를 측정하기 어려우신가요?",
+      "question": "교육비는 쓰고 효과는 모른다면?",
       "solution": "데이터 기반 AI-Q 역량 진단 리포트",
-      "description": "교육 전후 역량 변화를 6개 지표로 정량화하여 시각화합니다."
+      "description": "효과 없는 교육에 투자하는 것이 가장 큰 손실입니다. 교육 전후 역량 변화를 6개 지표로 정량화해 ROI를 투명하게 증명합니다."
     },
     "problem1": {
       "title": "어디서부터 써야 할지 모름",
@@ -507,17 +507,10 @@
     },
     "instructor1": {
       "name": "김도경",
-      "title": "Co-founder",
+      "title": "CEO",
       "cred1": "연세대 컴퓨터과학 · 연세대 AI 박사과정",
       "cred2": "現 서울대 AI 강사 · 前 Yanadoo AI Crew",
       "cred3": "AX & AI 컨설팅 전략 총괄"
-    },
-    "instructor2": {
-      "name": "강민서",
-      "title": "Co-founder",
-      "cred1": "KAIST AI 박사 · 前 Harvard·SK·Yanadoo",
-      "cred2": "現 서울대 AI 전문가 과정 강사",
-      "cred3": "AI 콘텐츠 마케팅 & AX 전략 총괄"
     },
     "instructor3": {
       "name": "이원석",

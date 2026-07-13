@@ -1,4 +1,4 @@
-import logoFull from "@/assets/logo-full.svg";
+import logoFull from "@/assets/nextgen_ai_corporate_education_transparent.png";
 import { Link } from "@/i18n/navigation";
 
 export function Footer() {
@@ -15,9 +15,9 @@ export function Footer() {
             <div className="space-y-1 text-sm text-white/40">
               <p>(주) 넥스트젠에이아이</p>
               <p>사업자번호 : 557-86-03716</p>
-              <p>대표이사 : 강민서, 김도경</p>
-              <p>본사 : 서울시 영등포구 양산로91 리드원센터 914호</p>
-              <p>연구지사 : 충청남도 아산시 염치읍 송곡남길 96, 107호</p>
+              <p>대표이사 : 김도경</p>
+              <p>본사 : 충청남도 아산시 염치읍 송곡남길 96, 107호</p>
+              <p>연구지사 : 서울시 영등포구 양산로91 리드원센터 914호</p>
             </div>
           </div>
           <div>

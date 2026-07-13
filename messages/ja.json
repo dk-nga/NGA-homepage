@@ -184,7 +184,7 @@
     "desc": "AI Experienceを革新するNextGen AIです。\n企業のAI導入から活用まで全過程を共にします。",
     "company": "株式会社 NextGen AI",
     "bizno": "事業者番号：557-86-03716",
-    "ceo": "代表取締役：カン・ミンソ、キム・ドギョン",
+    "ceo": "代表取締役：キム・ドギョン",
     "address": "住所：ソウル市永登浦区陽山路91 リードワンセンター914号",
     "services": "サービス",
     "consulting": "AIコンサルティング",
@@ -232,8 +232,8 @@
     "kpi3Desc": "Full-cycle AXプロジェクト比率（戦略→構築→運用）"
   },
   "edu": {
-    "badge": "AI企業教育",
-    "headline": "NextGenAIの企業教育は\n「業務が変わる教育」です。",
+    "badge": "Samsung・大法院・EBS 導入実績",
+    "headline": "Samsung・大法院・EBSが選んだ\n「業務が変わる教育」",
     "subtext": "理論で終わる教育はしません。\n実践AI Thinkingで業務を再設計し、\nAIで繰り返し業務を自動化して成果を出しましょう。",
     "ctaPrimary": "AI専門家に問い合わせる",
     "ctaSecondary": "カリキュラムを受け取る",
@@ -507,17 +507,10 @@
     },
     "instructor1": {
       "name": "キム・ドギョン",
-      "title": "Co-founder",
+      "title": "CEO",
       "cred1": "延世大コンピュータサイエンス・延世大AI博士課程",
       "cred2": "現ソウル大AI講師・前Yanadoo AI Crew",
       "cred3": "AX & AIコンサルティング戦略総括"
-    },
-    "instructor2": {
-      "name": "カン・ミンソ",
-      "title": "Co-founder",
-      "cred1": "KAIST AI博士・前Harvard・SK・Yanadoo",
-      "cred2": "現ソウル大AI専門家課程講師",
-      "cred3": "AIコンテンツマーケティング & AX戦略総括"
     },
     "instructor3": {
       "name": "イ・ウォンソク",

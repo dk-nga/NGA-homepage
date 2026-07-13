@@ -184,7 +184,7 @@
     "desc": "NextGen AI — redefining the AI Experience.\nWe partner with enterprises through every step of AI adoption and implementation.",
     "company": "NextGen AI Co., Ltd.",
     "bizno": "Business Reg. No.: 557-86-03716",
-    "ceo": "CEOs: Min-Seo Kang, Do-Kyung Kim",
+    "ceo": "CEO: Do-Kyung Kim",
     "address": "Address: 914, Lead One Center, 91 Yangsan-ro, Yeongdeungpo-gu, Seoul",
     "services": "Services",
     "consulting": "AI Consulting",
@@ -232,8 +232,8 @@
     "kpi3Desc": "Full-cycle AX project share (Strategy → Build → Operate)"
   },
   "edu": {
-    "badge": "Enterprise AI Training",
-    "headline": "NextGen AI's corporate training\nis \"training that changes how you work.\"",
+    "badge": "Trusted by Samsung · Supreme Court · EBS",
+    "headline": "Trusted by Samsung, Supreme Court & EBS\n\"Training that changes how you work.\"",
     "subtext": "We don't do training that ends with theory.\nRedesign your work with real AI Thinking,\nand automate repetitive tasks with AI to drive results.",
     "ctaPrimary": "Talk to an AI Expert",
     "ctaSecondary": "Get the Curriculum",
@@ -507,17 +507,10 @@
     },
     "instructor1": {
       "name": "Do-Kyung Kim",
-      "title": "Co-founder",
+      "title": "CEO",
       "cred1": "Yonsei CS · Yonsei AI PhD Program",
       "cred2": "Current SNU AI Instructor · Former Yanadoo AI Crew",
       "cred3": "Head of AX & AI Consulting Strategy"
-    },
-    "instructor2": {
-      "name": "Min-Seo Kang",
-      "title": "Co-founder",
-      "cred1": "KAIST AI PhD · Former Harvard·SK·Yanadoo",
-      "cred2": "Current SNU AI Expert Program Instructor",
-      "cred3": "Head of AI Content Marketing & AX Strategy"
     },
     "instructor3": {
       "name": "Won-Seok Lee",

@@ -11,9 +11,21 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { ContactWidgetProvider, useContactWidget } from "@/contexts/ContactWidgetContext";
 import { DownloadModal } from "@/components/DownloadModal";
 import { createClient as createSupabaseClient } from "@/lib/supabase/client";
+import { Tilt3D } from "@/components/Tilt3D";
 import type { Database } from "@/lib/supabase/types";
 import nextgenSymbol from "@/assets/nextgen-symbol.svg";
 import nextgenLogo from "@/assets/nextgen-ai-logo-full.png";
+
+// New spec sections
+import { EduAIQSection } from "@/components/sections/EduAIQSection";
+import { EduByLevelSection } from "@/components/sections/EduByLevelSection";
+import { EduByRoleSection } from "@/components/sections/EduByRoleSection";
+import { EduCurriculumSection } from "@/components/sections/EduCurriculumSection";
+import { EduSeminarsSection } from "@/components/sections/EduSeminarsSection";
+import { EduCasesSection } from "@/components/sections/EduCasesSection";
+import { EduFAQSection } from "@/components/sections/EduFAQSection";
+import { EduContactSection, openContactTab } from "@/components/sections/EduContactSection";
+import { EduPartnerLogosSection } from "@/components/sections/EduPartnerLogosSection";
 
 // Problem card images
 import problemImage1 from "@/assets/problem-1-hourglass.png";
@@ -189,16 +201,6 @@ const getInstructors = (t: (key: string) => string): Instructor[] => [
       t("edu.instructor1.cred1"),
       t("edu.instructor1.cred2"),
       t("edu.instructor1.cred3"),
-    ],
-  },
-  {
-    name: t("edu.instructor2.name"),
-    title: t("edu.instructor2.title"),
-    image: "ian.jpg",
-    credentials: [
-      t("edu.instructor2.cred1"),
-      t("edu.instructor2.cred2"),
-      t("edu.instructor2.cred3"),
     ],
   },
   {
@@ -1118,6 +1120,9 @@ const EducationContent = ({ stats }: EducationPageProps) => {
   // Download modal state
   const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
 
+  // Sticky CTA visibility
+  const [showStickyCTA, setShowStickyCTA] = useState(false);
+
   // Metrics section visibility ref
   const metricsRef = useRef<HTMLDivElement>(null);
   const metricsInView = useInView(metricsRef, { once: true, margin: "-50px" });
@@ -1169,6 +1174,13 @@ const EducationContent = ({ stats }: EducationPageProps) => {
     setIsDownloadModalOpen(true);
   };
 
+  // Sticky CTA scroll detection
+  useEffect(() => {
+    const onScroll = () => setShowStickyCTA(window.scrollY > 600);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -1178,7 +1190,7 @@ const EducationContent = ({ stats }: EducationPageProps) => {
         {/* Light pastel animated background */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#D8ECFC] via-[#E4EAFF] to-[#EDE4FB]">
           <motion.div 
-            className="absolute top-[10%] left-[5%] w-[500px] h-[500px] rounded-full bg-gradient-to-br from-[#165CFF]/15 to-[#8D36EB]/10 blur-3xl"
+            className="absolute top-[10%] left-[5%] w-[500px] h-[500px] rounded-full bg-gradient-to-br from-[#165CFF]/8 to-[#8D36EB]/5 blur-3xl"
             animate={{ 
               x: [0, 50, 0],
               y: [0, -30, 0],
@@ -1187,7 +1199,7 @@ const EducationContent = ({ stats }: EducationPageProps) => {
             transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
           />
           <motion.div 
-            className="absolute bottom-[10%] right-[5%] w-[450px] h-[450px] rounded-full bg-gradient-to-br from-[#8D36EB]/15 to-[#FF6B9D]/10 blur-3xl"
+            className="absolute bottom-[10%] right-[5%] w-[450px] h-[450px] rounded-full bg-gradient-to-br from-[#8D36EB]/8 to-[#165CFF]/5 blur-3xl"
             animate={{ 
               x: [0, -40, 0],
               y: [0, 40, 0],
@@ -1196,7 +1208,7 @@ const EducationContent = ({ stats }: EducationPageProps) => {
             transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
           />
           <motion.div 
-            className="absolute top-[40%] left-[40%] w-[600px] h-[600px] rounded-full bg-gradient-to-br from-[#165CFF]/10 to-[#00D4FF]/8 blur-3xl"
+            className="absolute top-[40%] left-[40%] w-[600px] h-[600px] rounded-full bg-gradient-to-br from-[#165CFF]/6 to-[#8D36EB]/4 blur-3xl"
             animate={{ 
               scale: [1, 1.15, 1],
               opacity: [0.6, 0.9, 0.6],
@@ -1293,6 +1305,57 @@ const EducationContent = ({ stats }: EducationPageProps) => {
                         {t("edu.ctaSecondary")}
                       </motion.button>
                     </div>
+
+                    {/* AI-Q 무료 진단 nudge */}
+                    <motion.div
+                      className="mt-4 flex justify-center lg:justify-start"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 1.2 }}
+                    >
+                      <div className="flex flex-wrap items-center gap-x-5 gap-y-2 justify-center lg:justify-start">
+                        <a
+                          href="#aiq"
+                          className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-[#8D36EB] transition-colors group"
+                        >
+                          <span className="relative flex h-2 w-2">
+                            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
+                            <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
+                          </span>
+                          무료 AI-Q 역량 진단 받아보기
+                          <ChevronDown className="w-3 h-3 group-hover:translate-y-0.5 transition-transform" />
+                        </a>
+                        <a
+                          href="#seminars"
+                          className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-[#8D36EB] transition-colors group"
+                        >
+                          <span className="relative flex h-2 w-2">
+                            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+                          </span>
+                          이번 달 무료 AI 세미나 보기
+                          <ChevronDown className="w-3 h-3 group-hover:translate-y-0.5 transition-transform" />
+                        </a>
+                      </div>
+                    </motion.div>
+
+                    {/* 주요 고객사 신뢰 태그 */}
+                    <motion.div
+                      className="mt-5 flex flex-wrap items-center gap-2 justify-center lg:justify-start"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 1.6 }}
+                    >
+                      <span className="text-[11px] text-muted-foreground/60">도입 기업:</span>
+                      {["삼성금융", "대법원", "EBS", "CJ", "SK"].map((name) => (
+                        <span
+                          key={name}
+                          className="text-[11px] font-semibold text-foreground/50 bg-white/70 border border-gray-200/80 rounded px-2 py-0.5 backdrop-blur-sm"
+                        >
+                          {name}
+                        </span>
+                      ))}
+                    </motion.div>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -1306,8 +1369,9 @@ const EducationContent = ({ stats }: EducationPageProps) => {
               className="relative mt-8 lg:mt-0 perspective-1000"
               style={{ perspective: '1000px' }}
             >
+              <Tilt3D max={6} glare={false} scale={1.01} className="relative max-w-sm mx-auto lg:mx-0">
               <motion.div
-                className="relative max-w-sm mx-auto lg:mx-0"
+                className="relative"
                 animate={{ rotateY: isChartFlipped ? 180 : 0 }}
                 transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
                 style={{ transformStyle: 'preserve-3d' }}
@@ -1409,7 +1473,42 @@ const EducationContent = ({ stats }: EducationPageProps) => {
                   </motion.button>
                 </div>
               </motion.div>
-              
+
+              {/* Floating depth badges - 3D 공중부양 배지 */}
+              <motion.div
+                className="absolute -top-4 -left-2 lg:-left-6 z-20 hidden sm:block"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: [0, -8, 0] }}
+                transition={{ opacity: { delay: 1.4 }, y: { duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1.4 } }}
+              >
+                <div className="flex items-center gap-2 px-3.5 py-2 rounded-2xl bg-white/85 backdrop-blur-md border border-white/70 shadow-lg shadow-[#8D36EB]/10">
+                  <div className="w-7 h-7 rounded-xl bg-gradient-to-br from-[#8D36EB] to-[#165CFF] flex items-center justify-center">
+                    <TrendingUp className="w-3.5 h-3.5 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-[13px] font-black text-foreground leading-none">4.6<span className="text-[10px] text-muted-foreground font-bold">/5.0</span></p>
+                    <p className="text-[10px] text-muted-foreground mt-0.5">교육 만족도</p>
+                  </div>
+                </div>
+              </motion.div>
+              <motion.div
+                className="absolute -bottom-5 -right-2 lg:-right-6 z-20 hidden sm:block"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: [0, 8, 0] }}
+                transition={{ opacity: { delay: 1.7 }, y: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1.7 } }}
+              >
+                <div className="flex items-center gap-2 px-3.5 py-2 rounded-2xl bg-white/85 backdrop-blur-md border border-white/70 shadow-lg shadow-[#165CFF]/10">
+                  <div className="w-7 h-7 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center">
+                    <Users className="w-3.5 h-3.5 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-[13px] font-black text-foreground leading-none">92%</p>
+                    <p className="text-[10px] text-muted-foreground mt-0.5">재계약률</p>
+                  </div>
+                </div>
+              </motion.div>
+              </Tilt3D>
+
               {/* Decorative elements */}
               <div className="absolute -top-3 -right-3 w-20 h-20 bg-gradient-to-br from-[#8D36EB]/20 to-[#165CFF]/10 rounded-full blur-2xl" />
               <div className="absolute -bottom-3 -left-3 w-24 h-24 bg-gradient-to-br from-[#165CFF]/15 to-[#00D4FF]/10 rounded-full blur-2xl" />
@@ -1418,8 +1517,63 @@ const EducationContent = ({ stats }: EducationPageProps) => {
         </div>
       </section>
 
+      {/* USP 보장 스트립 - 히어로 직후 신뢰 지표 4개 */}
+      <div className="bg-white border-y border-gray-100 py-5 shadow-sm">
+        <div className="container mx-auto px-6 max-w-5xl">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-0 md:divide-x md:divide-gray-100">
+            {[
+              { value: "43개+", label: "기업 도입 완료", icon: <Briefcase className="w-5 h-5 text-[#8D36EB]" /> },
+              { value: "4.6/5.0", label: "교육 만족도", icon: <TrendingUp className="w-5 h-5 text-[#8D36EB]" /> },
+              { value: "92%", label: "재계약률", icon: <Users className="w-5 h-5 text-[#8D36EB]" /> },
+              { value: "성과 보장", label: "AI-Q 미향상 시 재교육 무상", icon: <Shield className="w-5 h-5 text-emerald-600" />, highlight: true },
+            ].map((item) => (
+              <div key={item.label} className={`flex items-center gap-3 px-4 md:px-6 py-2 ${item.highlight ? "bg-emerald-50 md:bg-transparent rounded-xl md:rounded-none" : ""}`}>
+                <div className="flex-shrink-0">{item.icon}</div>
+                <div>
+                  <p className={`text-base font-black leading-none ${item.highlight ? "text-emerald-600" : "text-[#8D36EB]"}`}>
+                    {item.value}
+                  </p>
+                  <p className="text-[11px] text-muted-foreground mt-0.5">{item.label}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* 과정 퀵 내비게이터 - 우리 회사에 맞는 과정 바로 찾기 */}
+      <div className="bg-gray-50/80 border-b border-gray-100 py-4">
+        <div className="container mx-auto px-6">
+          <div className="flex items-center gap-2 md:justify-center overflow-x-auto scrollbar-hide pb-1 -mb-1">
+            <span className="text-xs font-bold text-muted-foreground whitespace-nowrap mr-1 hidden md:inline">
+              우리 회사에 맞는 과정 찾기:
+            </span>
+            {[
+              { label: "🎯 무료 AI-Q 진단", href: "#aiq" },
+              { label: "직급별 교육", href: "#by-level" },
+              { label: "직무별 교육", href: "#by-role" },
+              { label: "커리큘럼 카탈로그", href: "#curriculum" },
+              { label: "세미나·특강", href: "#seminars" },
+              { label: "도입 사례", href: "#cases" },
+              { label: "도입 문의", href: "#contact" },
+            ].map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="whitespace-nowrap px-3.5 py-1.5 rounded-full bg-white border border-gray-200 text-xs font-semibold text-foreground/70 hover:border-[#8D36EB]/40 hover:text-[#8D36EB] hover:bg-[#8D36EB]/5 transition-all"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* AI-Q 무료 진단 - 리드 마그넷 (히어로 직후 2번째) */}
+      <EduAIQSection />
+
       {/* Section 2: Social Proof - Animated Metrics + Logo Marquee */}
-      <section className="pt-20 pb-44 bg-muted/30">
+      <section className="py-24 bg-gray-50">
         <div className="container mx-auto px-6">
           {/* Section Title */}
           <motion.h2
@@ -1583,12 +1737,47 @@ const EducationContent = ({ stats }: EducationPageProps) => {
             </div>
           </motion.div>
 
-          {/* Testimonial Carousel */}
-          <TestimonialCarousel t={t} language={language} />
+          {/* 고객사 담당자 인용 */}
+          <motion.div
+            className="grid md:grid-cols-3 gap-4 max-w-5xl mx-auto mt-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            {[
+              { quote: "교육 이후 임직원들이 실제로 업무에 AI를 쓰기 시작했어요.", role: "인사팀 과장", company: "대기업" },
+              { quote: "수치로 역량 변화를 확인할 수 있다는 게 임원 보고에 큰 도움이 됐습니다.", role: "DX 전략팀 팀장", company: "금융사" },
+              { quote: "AI-Q 리포트를 바로 임원 보고에 활용했어요. 교육 ROI 설명이 쉬워졌습니다.", role: "교육기획 담당자", company: "제조 대기업" },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                className="bg-white/70 backdrop-blur-sm rounded-2xl p-5 border border-white/80 shadow-sm"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+              >
+                <p className="text-sm text-foreground/80 leading-relaxed mb-4">
+                  &ldquo;{item.quote}&rdquo;
+                </p>
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#8D36EB]/20 to-[#165CFF]/20 flex items-center justify-center flex-shrink-0">
+                    <Users className="w-4 h-4 text-[#8D36EB]" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold text-foreground">{item.role}</p>
+                    <p className="text-xs text-muted-foreground">{item.company}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
         </div>
       </section>
+
       {/* Section 3: Why Most AI Education Fails - Light Purple Theme */}
-      <section className="py-24 bg-[#E8ECFF] relative overflow-hidden">
+      <section className="py-24 bg-white relative overflow-hidden">
         <div className="container mx-auto px-6 relative z-10">
           {/* Section Header */}
           <motion.div
@@ -1696,20 +1885,19 @@ const EducationContent = ({ stats }: EducationPageProps) => {
             <div className="bg-white/40 backdrop-blur-xl rounded-2xl p-8 md:p-10 text-center relative overflow-hidden border border-white/60 shadow-xl">
               <div className="relative z-10">
                 <div className="inline-flex items-center gap-3 text-foreground/70 text-sm font-medium mb-4">
-                  <motion.span 
-                    className="text-2xl"
-                    animate={{ 
-                      scale: [1, 1.1, 1],
-                      rotate: [0, -5, 5, 0]
+                  <motion.div
+                    className="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center"
+                    animate={{
+                      scale: [1, 1.08, 1],
                     }}
-                    transition={{ 
+                    transition={{
                       duration: 2,
                       repeat: Infinity,
                       repeatDelay: 1
                     }}
                   >
-                    ❗
-                  </motion.span>
+                    <Target className="w-4 h-4 text-red-500" />
+                  </motion.div>
                   <span className="font-semibold">{t("edu.problemCommon.label")}</span>
                 </div>
                 <p className="text-sm md:text-2xl font-bold text-foreground leading-relaxed">
@@ -1943,16 +2131,159 @@ const EducationContent = ({ stats }: EducationPageProps) => {
         </div>
       </section>
 
+      {/* 기존 AI 교육 vs 넥스트젠AI 비교 */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-6 max-w-5xl">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-xs font-bold text-[#8D36EB] uppercase tracking-widest mb-3">Why NextGenAI</p>
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-3">
+              AX를 직접 수행하는 팀이,{" "}
+              <span className="bg-gradient-to-r from-[#8D36EB] to-[#165CFF] bg-clip-text text-transparent">
+                처음부터 다르게 설계했습니다
+              </span>
+            </h2>
+            <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
+              넥스트젠AI는 교육 회사가 아니라, 기업 AX 컨설팅을 직접 수행하는 팀입니다.
+              현장에서 먼저 풀어본 문제와 해결 과정을 그대로 교육에 담았습니다.
+            </p>
+          </motion.div>
+
+          {/* Comparison rows */}
+          <div className="hidden md:grid grid-cols-[1fr_1.2fr] gap-3 mb-3">
+            <p className="text-center text-xs font-bold text-gray-400 tracking-wider py-2">기존 AI 교육의 문제</p>
+            <p className="text-center text-xs font-bold text-[#8D36EB] tracking-wider py-2">넥스트젠AI의 방식</p>
+          </div>
+          <div className="space-y-3">
+            {[
+              {
+                before: "툴 사용법 강의를 듣고 끝",
+                after: "실제 업무 과제로 실습하고, 모든 레벨에서 수료 산출물이 남습니다",
+              },
+              {
+                before: "외부 강사 섭외에 의존, 품질 편차 발생",
+                after: "AX 컨설팅을 직접 수행하는 석·박사급 전문가가 설계부터 강의까지 담당합니다",
+              },
+              {
+                before: "만족도 설문으로 종료, 효과 증명 불가",
+                after: "AI-Q 진단을 교육 전후 2회 실시해 역량 변화를 수치로 보고합니다",
+              },
+              {
+                before: "모두에게 똑같은 커리큘럼",
+                after: "13개 툴 축 × Lv1–3 레벨제를 진단 결과에 맞게 조합합니다",
+              },
+              {
+                before: "교육이 끝나면 흐지부지",
+                after: "특강 → 기본형 → 풀패키지 → AX 컨설팅으로 정착까지 이어지는 경로를 설계합니다",
+              },
+            ].map((row, i) => (
+              <motion.div
+                key={i}
+                className="grid md:grid-cols-[1fr_1.2fr] gap-2 md:gap-3"
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.07 }}
+              >
+                <div className="flex items-center gap-3 bg-white border border-gray-200 rounded-xl px-4 py-3.5">
+                  <span className="w-5 h-5 rounded-full bg-red-50 border border-red-200 text-red-400 flex items-center justify-center flex-shrink-0 text-[10px] font-black">✕</span>
+                  <p className="text-xs md:text-sm text-gray-500">{row.before}</p>
+                </div>
+                <div className="flex items-center gap-3 rounded-xl px-4 py-3.5 border border-[#8D36EB]/20 bg-gradient-to-r from-[#8D36EB]/5 to-[#165CFF]/5">
+                  <span className="w-5 h-5 rounded-full bg-gradient-to-br from-[#8D36EB] to-[#165CFF] text-white flex items-center justify-center flex-shrink-0">
+                    <CheckCircle2 className="w-3 h-3" />
+                  </span>
+                  <p className="text-xs md:text-sm font-semibold text-foreground">{row.after}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 교육 전·중·후 시스템 */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6">
+          <motion.div
+            className="text-center mb-14"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-xs font-bold text-[#8D36EB] uppercase tracking-widest mb-3">How It Works</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+              교육 전·중·후,{" "}
+              <span className="bg-gradient-to-r from-[#8D36EB] to-[#165CFF] bg-clip-text text-transparent">
+                시스템으로 관리합니다
+              </span>
+            </h2>
+          </motion.div>
+
+          <div className="max-w-4xl mx-auto relative">
+            {/* Connector line (desktop only) */}
+            <div className="hidden md:block absolute top-10 left-[22%] right-[22%] h-px bg-gradient-to-r from-[#8D36EB]/20 via-[#165CFF]/40 to-[#8D36EB]/20" />
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                {
+                  step: "교육 전",
+                  title: "AI-Q 역량 진단",
+                  desc: "교육 전 6개 지표로 조직의 현재 AI 역량을 정밀 측정하고 시작 레벨을 정합니다.",
+                  gradient: "from-[#8D36EB] to-[#a855f7]",
+                  Icon: TrendingUp,
+                },
+                {
+                  step: "교육 중",
+                  title: "실습·산출물 관리",
+                  desc: "진단 기반 맞춤 커리큘럼으로 실습을 운영하고, 레벨마다 수강생 산출물을 남깁니다.",
+                  gradient: "from-[#8D36EB] to-[#165CFF]",
+                  Icon: GraduationCap,
+                },
+                {
+                  step: "교육 후",
+                  title: "성과 측정·리포트",
+                  desc: "교육 후 재진단으로 역량 향상을 수치화하고 임원 보고용 리포트를 제공합니다.",
+                  gradient: "from-[#165CFF] to-[#00b4d8]",
+                  Icon: Target,
+                },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  className="flex flex-col items-center text-center"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.15 }}
+                >
+                  <div className={`relative w-20 h-20 rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-5 shadow-lg shadow-[#8D36EB]/20`}>
+                    <item.Icon className="w-9 h-9 text-white" />
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-white border border-[#8D36EB]/20 shadow-sm whitespace-nowrap">
+                      <span className="text-[10px] font-black text-[#8D36EB]">{item.step}</span>
+                    </div>
+                  </div>
+                  <h3 className="text-base font-bold text-foreground mb-2">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed max-w-[200px]">{item.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Section 4: Core Program - Why Different */}
-      <section className="py-24 bg-muted/30 relative overflow-hidden">
+      <section className="py-24 bg-gray-50 relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 pointer-events-none">
-          <motion.div 
+          <motion.div
             className="absolute top-20 left-[10%] w-64 h-64 rounded-full bg-gradient-to-br from-[#8D36EB]/5 to-transparent blur-3xl"
             animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
             transition={{ duration: 8, repeat: Infinity }}
           />
-          <motion.div 
+          <motion.div
             className="absolute bottom-20 right-[10%] w-80 h-80 rounded-full bg-gradient-to-br from-[#165CFF]/5 to-transparent blur-3xl"
             animate={{ scale: [1.2, 1, 1.2], opacity: [0.5, 0.3, 0.5] }}
             transition={{ duration: 10, repeat: Infinity }}
@@ -1988,12 +2319,12 @@ const EducationContent = ({ stats }: EducationPageProps) => {
               {/* Decorative gradient corner */}
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-[#8D36EB]/10 to-transparent rounded-bl-full" />
               <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-[#165CFF]/10 to-transparent rounded-tr-full" />
-              
+
               <div className="relative z-10">
                 <p className="text-xl md:text-2xl font-bold text-center mb-8 text-foreground">
                   {t('edu.core.answer')}
                 </p>
-                
+
                 <div className="space-y-6 text-center">
                   <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
                     {t('edu.core.mostFocus')}
@@ -2004,7 +2335,7 @@ const EducationContent = ({ stats }: EducationPageProps) => {
                       <span className="relative z-10 font-bold bg-gradient-to-r from-[#8D36EB] to-[#165CFF] bg-clip-text text-transparent">
                         {t('edu.core.ngaFocus2')}
                       </span>
-                      <motion.span 
+                      <motion.span
                         className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-[#8D36EB]/20 to-[#165CFF]/20 -skew-x-2 rounded"
                         initial={{ scaleX: 0 }}
                         whileInView={{ scaleX: 1 }}
@@ -2031,12 +2362,12 @@ const EducationContent = ({ stats }: EducationPageProps) => {
               {language === 'ja' ? 'この違いを生み出すのが、' : '이 차이를 만드는 것이 바로,'}
             </p>
             <p className="text-base md:text-2xl font-bold text-foreground">
-              {language === 'ja' 
-                ? 'NextGenAIだけの' 
+              {language === 'ja'
+                ? 'NextGenAIだけの'
                 : '넥스트젠AI만의 '}
               <span className="bg-gradient-to-r from-[#8D36EB] to-[#165CFF] bg-clip-text text-transparent">
-                {language === 'ja' 
-                  ? '実務適用・定着中心の教育運営システム' 
+                {language === 'ja'
+                  ? '実務適用・定着中心の教育運営システム'
                   : '실무 적용·정착 중심 교육 운영 시스템'}
               </span>
               {language === 'ja' ? 'です。' : '입니다.'}
@@ -2059,7 +2390,7 @@ const EducationContent = ({ stats }: EducationPageProps) => {
           </motion.div>
 
           {/* Program Cards */}
-          <motion.div 
+          <motion.div
             className="grid md:grid-cols-3 gap-4 md:gap-8 max-w-5xl mx-auto"
             variants={containerVariants}
             initial="hidden"
@@ -2078,7 +2409,7 @@ const EducationContent = ({ stats }: EducationPageProps) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <motion.div 
+            <motion.div
               className="bg-white/60 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 cursor-default"
               whileHover={{ y: -4, scale: 1.02 }}
               transition={{ type: "spring", stiffness: 500, damping: 25 }}
@@ -2093,7 +2424,7 @@ const EducationContent = ({ stats }: EducationPageProps) => {
                 {t('edu.core.enterpriseSecurityDesc3')}
               </p>
             </motion.div>
-            <motion.div 
+            <motion.div
               className="bg-white/60 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 cursor-default"
               whileHover={{ y: -4, scale: 1.02 }}
               transition={{ type: "spring", stiffness: 500, damping: 25 }}
@@ -2111,6 +2442,18 @@ const EducationContent = ({ stats }: EducationPageProps) => {
         </div>
       </section>
 
+      {/* 직급별 커리큘럼 탭 */}
+      <EduByLevelSection />
+
+      {/* 직무별 아코디언 */}
+      <EduByRoleSection />
+
+      {/* 커리큘럼 카탈로그 — 13개 툴 축 × Lv1–3 레벨제 */}
+      <EduCurriculumSection />
+
+      {/* 세미나 · 특강 (단건 프로그램) */}
+      <EduSeminarsSection />
+
       {/* Section 5: Evidence - Chart */}
       <section className="py-24 bg-gradient-to-br from-[#8D36EB] to-[#165CFF] relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
@@ -2119,7 +2462,7 @@ const EducationContent = ({ stats }: EducationPageProps) => {
             backgroundSize: '50px 50px'
           }} />
         </div>
-        
+
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-6xl mx-auto">
             <motion.div
@@ -2137,8 +2480,7 @@ const EducationContent = ({ stats }: EducationPageProps) => {
                   <motion.span
                     className="absolute bottom-0 left-0 w-full h-[45%] origin-left"
                     style={{
-                      background:
-                        "linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.45) 100%)",
+                      background: "linear-gradient(90deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.45) 100%)",
                       borderRadius: "4px 8px 6px 3px",
                       transform: "skewX(-3deg) rotate(-0.5deg)",
                     }}
@@ -2160,8 +2502,7 @@ const EducationContent = ({ stats }: EducationPageProps) => {
                   <motion.span
                     className="absolute bottom-0 left-0 w-full h-[45%] origin-left"
                     style={{
-                      background:
-                        "linear-gradient(90deg, rgba(255,59,59,0.75) 0%, rgba(255,80,80,0.85) 40%, rgba(255,59,59,0.7) 100%)",
+                      background: "linear-gradient(90deg, rgba(255,59,59,0.75) 0%, rgba(255,80,80,0.85) 40%, rgba(255,59,59,0.7) 100%)",
                       borderRadius: "6px 4px 8px 5px",
                       transform: "skewX(-2deg) rotate(0.3deg)",
                     }}
@@ -2173,14 +2514,13 @@ const EducationContent = ({ stats }: EducationPageProps) => {
                 </span>
                 {t("edu.evidence.headline7")}
                 <br />
-                {t("edu.evidence.measurePrefix")} {" "}
+                {t("edu.evidence.measurePrefix")}{" "}
                 <span className="relative inline-block">
                   <span className="relative z-10">{t("edu.evidence.measureHighlight")}</span>
                   <motion.span
                     className="absolute bottom-0 left-0 w-full h-[50%] origin-left"
                     style={{
-                      background:
-                        "linear-gradient(90deg, rgba(255,217,61,0.85) 0%, rgba(255,230,100,0.9) 50%, rgba(255,217,61,0.8) 100%)",
+                      background: "linear-gradient(90deg, rgba(255,217,61,0.85) 0%, rgba(255,230,100,0.9) 50%, rgba(255,217,61,0.8) 100%)",
                       borderRadius: "5px 7px 4px 6px",
                       transform: "skewX(-4deg) rotate(-0.3deg)",
                     }}
@@ -2231,19 +2571,18 @@ const EducationContent = ({ stats }: EducationPageProps) => {
               ))}
             </motion.div>
 
-            {/* Main Dashboard */}
+            {/* Main Dashboard - 3D rise-up entrance */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0, y: 70, rotateX: 16 }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+              style={{ transformPerspective: 1200, transformOrigin: "center bottom" }}
               className="bg-white rounded-3xl p-6 md:p-8 shadow-2xl"
             >
               {/* KPI Cards Row */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                <motion.div 
-                  className="bg-gray-50 rounded-xl p-4"
-                  whileHover={{ scale: 1.02 }}
-                >
+                <motion.div className="bg-gray-50 rounded-xl p-4" whileHover={{ scale: 1.02 }}>
                   <p className="text-xs text-muted-foreground mb-1">{t('edu.aiq.avgScore')}</p>
                   <div className="flex items-baseline gap-1">
                     <span className="text-3xl font-black bg-gradient-to-r from-[#8D36EB] to-[#165CFF] bg-clip-text text-transparent">86.6</span>
@@ -2251,10 +2590,7 @@ const EducationContent = ({ stats }: EducationPageProps) => {
                   </div>
                   <p className="text-xs text-muted-foreground mt-1">150/150{t('edu.aiq.participants')}</p>
                 </motion.div>
-                <motion.div 
-                  className="bg-gray-50 rounded-xl p-4"
-                  whileHover={{ scale: 1.02 }}
-                >
+                <motion.div className="bg-gray-50 rounded-xl p-4" whileHover={{ scale: 1.02 }}>
                   <p className="text-xs text-muted-foreground mb-1">{t('edu.aiq.examStatus')}</p>
                   <div className="flex items-baseline gap-1">
                     <span className="text-3xl font-black text-foreground">100</span>
@@ -2262,10 +2598,7 @@ const EducationContent = ({ stats }: EducationPageProps) => {
                   </div>
                   <p className="text-xs text-muted-foreground mt-1">150/150{t('edu.aiq.participants')}</p>
                 </motion.div>
-                <motion.div 
-                  className="bg-gray-50 rounded-xl p-4"
-                  whileHover={{ scale: 1.02 }}
-                >
+                <motion.div className="bg-gray-50 rounded-xl p-4" whileHover={{ scale: 1.02 }}>
                   <p className="text-xs text-muted-foreground mb-1">{t('edu.aiq.aiTalent')}</p>
                   <div className="flex items-baseline gap-1">
                     <span className="text-3xl font-black text-foreground">65</span>
@@ -2273,50 +2606,32 @@ const EducationContent = ({ stats }: EducationPageProps) => {
                   </div>
                   <p className="text-xs text-muted-foreground mt-1">{t('edu.aiq.total')} 88%</p>
                 </motion.div>
-                <motion.div 
-                  className="bg-gray-50 rounded-xl p-4"
-                  whileHover={{ scale: 1.02 }}
-                >
+                <motion.div className="bg-gray-50 rounded-xl p-4" whileHover={{ scale: 1.02 }}>
                   <p className="text-xs text-muted-foreground mb-1">{t('edu.aiq.distribution')}</p>
                   <div className="flex items-center gap-2 mt-2">
-                    <motion.div 
-                      className="relative"
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 15 }}
-                    >
-                      <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#FF3B3B] to-[#FF6B6B] text-white text-sm font-black flex items-center justify-center shadow-lg shadow-[#FF3B3B]/30">
-                        S
-                      </div>
-                      <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-white rounded-full text-[8px] font-bold flex items-center justify-center shadow-md text-[#FF3B3B]">48</div>
-                    </motion.div>
-                    <motion.div 
-                      className="relative"
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 15 }}
-                    >
-                      <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#FF9500] to-[#FFB340] text-white text-sm font-black flex items-center justify-center shadow-lg shadow-[#FF9500]/30">
-                        A
-                      </div>
-                      <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-white rounded-full text-[8px] font-bold flex items-center justify-center shadow-md text-[#FF9500]">51</div>
-                    </motion.div>
-                    <motion.div 
-                      className="relative"
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 15 }}
-                    >
-                      <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#FFD60A] to-[#FFE566] text-[#8B7000] text-sm font-black flex items-center justify-center shadow-lg shadow-[#FFD60A]/30">
-                        B
-                      </div>
-                      <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-white rounded-full text-[8px] font-bold flex items-center justify-center shadow-md text-[#8B7000]">51</div>
-                    </motion.div>
+                    {[
+                      { grade: 'S', count: 48, from: '#FF3B3B', to: '#FF6B6B' },
+                      { grade: 'A', count: 51, from: '#FF9500', to: '#FFB340' },
+                      { grade: 'B', count: 51, from: '#FFD60A', to: '#FFE566', textColor: '#8B7000' },
+                    ].map(({ grade, count, from, to, textColor }) => (
+                      <motion.div key={grade} className="relative" whileHover={{ scale: 1.1 }} transition={{ type: "spring", stiffness: 400, damping: 15 }}>
+                        <div className="w-9 h-9 rounded-xl text-white text-sm font-black flex items-center justify-center shadow-lg"
+                          style={{ background: `linear-gradient(135deg, ${from}, ${to})`, color: textColor || 'white', boxShadow: `0 4px 12px ${from}50` }}>
+                          {grade}
+                        </div>
+                        <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-white rounded-full text-[8px] font-bold flex items-center justify-center shadow-md border border-gray-100" style={{ color: from }}>
+                          {count}
+                        </div>
+                      </motion.div>
+                    ))}
                   </div>
                 </motion.div>
               </div>
 
               {/* Charts Grid */}
               <div className="grid md:grid-cols-2 gap-6">
-                {/* Hexagon Radar Chart - 6 Metrics */}
-                <motion.div 
+                {/* Hexagon Radar Chart */}
+                <motion.div
                   className="bg-gray-50 rounded-2xl p-6"
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -2327,65 +2642,30 @@ const EducationContent = ({ stats }: EducationPageProps) => {
                     <h3 className="font-bold text-foreground">{t('edu.aiq.sixMetrics')}</h3>
                     <span className="text-xs text-muted-foreground">{t('edu.aiq.companyBasis')}</span>
                   </div>
-                  
-                  {/* Hexagon Radar Chart SVG */}
                   <div className="relative aspect-square max-w-[260px] mx-auto">
                     <svg viewBox="0 0 200 200" className="w-full h-full">
-                      {/* Hexagon grid layers */}
-                      {[20, 40, 60, 80].map((r, i) => {
-                        const points = Array.from({ length: 6 }, (_, j) => {
-                          const angle = (j * 60 - 90) * (Math.PI / 180);
-                          return `${100 + r * Math.cos(angle)},${100 + r * Math.sin(angle)}`;
-                        }).join(' ');
-                        return (
-                          <polygon
-                            key={i}
-                            points={points}
-                            fill="none"
-                            stroke="#E5E5E5"
-                            strokeWidth="0.5"
-                          />
-                        );
-                      })}
-                      
-                      {/* Axis lines */}
+                      {[20, 40, 60, 80].map((r, i) => (
+                        <polygon key={i} fill="none" stroke="#E5E5E5" strokeWidth="0.5"
+                          points={Array.from({ length: 6 }, (_, j) => {
+                            const angle = (j * 60 - 90) * (Math.PI / 180);
+                            return `${100 + r * Math.cos(angle)},${100 + r * Math.sin(angle)}`;
+                          }).join(' ')}
+                        />
+                      ))}
                       {Array.from({ length: 6 }, (_, i) => {
                         const angle = (i * 60 - 90) * (Math.PI / 180);
-                        const x = 100 + 80 * Math.cos(angle);
-                        const y = 100 + 80 * Math.sin(angle);
-                        return (
-                          <line
-                            key={i}
-                            x1="100"
-                            y1="100"
-                            x2={x}
-                            y2={y}
-                            stroke="#E5E5E5"
-                            strokeWidth="0.5"
-                          />
-                        );
+                        return <line key={i} x1="100" y1="100" x2={100 + 80 * Math.cos(angle)} y2={100 + 80 * Math.sin(angle)} stroke="#E5E5E5" strokeWidth="0.5" />;
                       })}
-                      
-                      {/* Data polygon - animated */}
                       <motion.polygon
-                        fill="url(#radarGradient)"
-                        stroke="url(#strokeGradient)"
-                        strokeWidth="2"
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
+                        fill="url(#radarGradient)" stroke="url(#strokeGradient)" strokeWidth="2"
+                        initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
                         transition={{ duration: 1, delay: 0.5 }}
-                        points={(() => {
-                          const values = [85, 78, 72, 68, 82, 75]; // 6 metrics values
-                          return values.map((v, i) => {
-                            const angle = (i * 60 - 90) * (Math.PI / 180);
-                            const r = (v / 100) * 80;
-                            return `${100 + r * Math.cos(angle)},${100 + r * Math.sin(angle)}`;
-                          }).join(' ');
-                        })()}
+                        points={[85, 78, 72, 68, 82, 75].map((v, i) => {
+                          const angle = (i * 60 - 90) * (Math.PI / 180);
+                          const r = (v / 100) * 80;
+                          return `${100 + r * Math.cos(angle)},${100 + r * Math.sin(angle)}`;
+                        }).join(' ')}
                       />
-                      
-                      {/* Gradient definitions */}
                       <defs>
                         <linearGradient id="radarGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                           <stop offset="0%" stopColor="#8D36EB" stopOpacity="0.2" />
@@ -2396,30 +2676,17 @@ const EducationContent = ({ stats }: EducationPageProps) => {
                           <stop offset="100%" stopColor="#165CFF" />
                         </linearGradient>
                       </defs>
-                      
-                      {/* Data points - small circles */}
                       {[85, 78, 72, 68, 82, 75].map((v, i) => {
                         const angle = (i * 60 - 90) * (Math.PI / 180);
                         const r = (v / 100) * 80;
-                        const x = 100 + r * Math.cos(angle);
-                        const y = 100 + r * Math.sin(angle);
                         return (
-                          <motion.circle
-                            key={i}
-                            cx={x}
-                            cy={y}
-                            r="4"
-                            fill="#8D36EB"
-                            initial={{ scale: 0 }}
-                            whileInView={{ scale: 1 }}
-                            viewport={{ once: true }}
+                          <motion.circle key={i} cx={100 + r * Math.cos(angle)} cy={100 + r * Math.sin(angle)} r="4" fill="#8D36EB"
+                            initial={{ scale: 0 }} whileInView={{ scale: 1 }} viewport={{ once: true }}
                             transition={{ delay: 0.8 + i * 0.08 }}
                           />
                         );
                       })}
                     </svg>
-                    
-                    {/* Labels around the hexagon */}
                     {[
                       { label: t('edu.aiq.aiUnderstanding'), value: 85, pos: 'top-0 left-1/2 -translate-x-1/2 -translate-y-6' },
                       { label: t('edu.aiq.toolProficiency'), value: 78, pos: 'top-[15%] right-0 translate-x-4' },
@@ -2436,12 +2703,12 @@ const EducationContent = ({ stats }: EducationPageProps) => {
                   </div>
                 </motion.div>
 
-                {/* Before/After Bar Chart with Toggle */}
+                {/* Before/After Bar Chart */}
                 <BeforeAfterChart />
               </div>
-              
+
               {/* Bottom Summary */}
-              <motion.div 
+              <motion.div
                 className="mt-8 pt-6 border-t border-gray-100 flex flex-wrap items-center justify-center gap-6"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
@@ -2472,110 +2739,63 @@ const EducationContent = ({ stats }: EducationPageProps) => {
         </div>
       </section>
 
-      {/* Section 6: Process */}
-      <section className="py-24">
-        <div className="container mx-auto px-6">
+      {/* 도입 사례 - 기업들이 증명한 실제 교육 효과 */}
+      <EduCasesSection />
+
+      {/* Mid-page CTA */}
+      <div className="py-16 bg-white border-y border-gray-100">
+        <div className="container mx-auto px-6 max-w-3xl text-center">
           <motion.div
-            className="text-center mb-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 leading-tight">
-              {language === 'ja' 
-                ? <>なぜ多くの企業のAI教育は失敗するのでしょうか？<br />
-                  <span className="relative inline-block">
-                    <span className="relative z-10">出発点</span>
-                    <motion.span 
-                      className="absolute bottom-0 left-0 w-full h-[45%] origin-left"
-                      style={{
-                        background: 'linear-gradient(90deg, rgba(141,54,235,0.5) 0%, rgba(22,92,255,0.6) 100%)',
-                        borderRadius: '4px 6px 5px 4px',
-                        transform: 'skewX(-2deg) rotate(0.3deg)',
-                      }}
-                      initial={{ scaleX: 0 }}
-                      whileInView={{ scaleX: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-                    />
-                  </span>が違うからです。</>
-                : <>왜 많은 기업의 AI 교육은 실패할까요?<br />
-                  <span className="relative inline-block">
-                    <span className="relative z-10">시작점</span>
-                    <motion.span 
-                      className="absolute bottom-0 left-0 w-full h-[45%] origin-left"
-                      style={{
-                        background: 'linear-gradient(90deg, rgba(141,54,235,0.5) 0%, rgba(22,92,255,0.6) 100%)',
-                        borderRadius: '4px 6px 5px 4px',
-                        transform: 'skewX(-2deg) rotate(0.3deg)',
-                      }}
-                      initial={{ scaleX: 0 }}
-                      whileInView={{ scaleX: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-                    />
-                  </span>이 다르기 때문입니다.</>
-              }
-            </h2>
-            <p className="text-lg md:text-xl text-muted-foreground">
-              {language === 'ja' 
-                ? <>私たちの組織の
-                  <span className="relative inline-block mx-1">
-                    <motion.span 
-                      className="absolute inset-0 bg-gradient-to-r from-[#8D36EB] to-[#165CFF] rounded origin-left"
-                      initial={{ scaleX: 0 }}
-                      whileInView={{ scaleX: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.7, delay: 0.5, ease: "easeOut" }}
-                    />
-                    <span className="relative z-10 text-white font-bold px-2 py-0.5">&apos;AX-Level&apos;</span>
-                  </span>、今どこから始めるべきでしょうか？</>
-                : <>우리 조직의 
-                  <span className="relative inline-block mx-1">
-                    <motion.span 
-                      className="absolute inset-0 bg-gradient-to-r from-[#8D36EB] to-[#165CFF] rounded origin-left"
-                      initial={{ scaleX: 0 }}
-                      whileInView={{ scaleX: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.7, delay: 0.5, ease: "easeOut" }}
-                    />
-                    <span className="relative z-10 text-white font-bold px-2 py-0.5">&apos;AX-Level&apos;</span>
-                  </span>, 지금 어디부터 시작해야 할까요?</>
-              }
-            </p>
-          </motion.div>
-          
-          {/* Stair-step Layout with Curved Base */}
-          <motion.div 
-            className="relative max-w-5xl mx-auto"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {/* Desktop Stair Layout */}
-            <div className="hidden md:flex flex-row items-end justify-between gap-3">
-              {getProcessSteps(t).map((step, index) => (
-                <ProcessStepCard key={index} step={step} index={index} />
-              ))}
-            </div>
-
-            {/* Mobile Vertical Layout */}
-            <div className="md:hidden flex flex-col gap-4">
-              {getProcessSteps(t).map((step, index) => (
-                <ProcessStepCardMobile key={index} step={step} index={index} />
-              ))}
+            <p className="text-sm text-[#8D36EB] font-semibold mb-3">AI-Q 역량진단 · 교육 커리큘럼 · 도입 비용</p>
+            <h3 className="text-2xl md:text-3xl font-black text-foreground mb-6">
+              우리 조직에 맞는 AI 교육,<br />
+              <span className="bg-gradient-to-r from-[#8D36EB] to-[#165CFF] bg-clip-text text-transparent">
+                30분 상담으로 설계해드립니다
+              </span>
+            </h3>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <motion.button
+                onClick={handlePrimaryCTA}
+                className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#8D36EB] to-[#165CFF] text-white font-bold text-sm shadow-lg shadow-[#8D36EB]/30 hover:shadow-xl hover:shadow-[#8D36EB]/40 transition-all"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                무료 상담 신청하기 →
+              </motion.button>
+              <motion.button
+                onClick={handleSecondaryCTA}
+                className="px-8 py-3.5 rounded-xl border border-gray-200 bg-white text-foreground font-semibold text-sm hover:border-[#8D36EB]/30 hover:bg-[#8D36EB]/5 transition-all"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                커리큘럼 자료 받기
+              </motion.button>
             </div>
           </motion.div>
         </div>
-      </section>
+      </div>
 
       {/* Section 7: Expert Credentials - Instructor Carousel */}
       <section className="py-24 bg-gradient-to-br from-[#0a0a1a] via-[#0d0d24] to-[#1a1a2e] relative overflow-hidden">
         {/* Background orbs */}
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#8D36EB]/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#165CFF]/10 rounded-full blur-3xl" />
-        
+        {/* Rotating aurora ring */}
+        <motion.div
+          className="absolute left-1/2 top-10 -translate-x-1/2 w-[640px] h-[640px] rounded-full pointer-events-none opacity-[0.16]"
+          style={{
+            background:
+              "conic-gradient(from 0deg, transparent 0%, #8D36EB 18%, transparent 38%, #165CFF 60%, transparent 80%, #8D36EB 100%)",
+            filter: "blur(70px)",
+          }}
+          animate={{ rotate: 360 }}
+          transition={{ duration: 36, repeat: Infinity, ease: "linear" }}
+        />
+
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
             className="text-center text-white mb-16"
@@ -2584,7 +2804,7 @@ const EducationContent = ({ stats }: EducationPageProps) => {
             viewport={{ once: true }}
           >
             {/* University Logos - Small Card Above Quote */}
-            <motion.div 
+            <motion.div
               className="flex justify-center mb-6"
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -2594,16 +2814,15 @@ const EducationContent = ({ stats }: EducationPageProps) => {
               <div className="flex items-center gap-6 px-6 py-3">
                 {[
                   { name: "서울대", logo: "snu.png", needsBg: true },
-                  { name: "KAIST", logo: "kaist.png", needsBg: true },
                   { name: "연세대", logo: "yonsei.png", needsBg: false },
                 ].map((uni, index) => (
-                  <motion.div 
+                  <motion.div
                     key={index}
                     className="flex flex-col items-center gap-1 cursor-pointer"
                     whileHover={{ scale: 1.1, y: -2 }}
                     transition={{ type: "spring", stiffness: 400, damping: 17 }}
                   >
-                    <img 
+                    <img
                       src={`https://rsigybhusvrnkllhurhv.supabase.co/storage/v1/object/public/university-logos/${uni.logo}`}
                       alt={uni.name}
                       className={`w-10 h-10 object-contain ${uni.needsBg ? 'bg-white rounded-lg p-1' : ''}`}
@@ -2615,26 +2834,26 @@ const EducationContent = ({ stats }: EducationPageProps) => {
             </motion.div>
 
             <p className="text-white/60 text-sm md:text-lg mb-3 md:mb-4">
-              {language === 'ja' 
+              {language === 'ja'
                 ? '"本当に使う人たちが、本当に使えるようにします。"'
                 : '"진짜 쓰는 사람들이, 진짜 쓸 수 있게 만듭니다."'}
             </p>
             <h2 className="text-sm md:text-2xl font-bold leading-relaxed mb-6 md:mb-8">
-              {language === 'ja' 
+              {language === 'ja'
                 ? <>
                     <span className="relative inline-block">
-                      <motion.span 
+                      <motion.span
                         className="absolute inset-0 bg-yellow-300/60 -skew-x-3 -z-10 origin-left"
                         initial={{ scaleX: 0 }}
                         whileInView={{ scaleX: 1.05 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
                       />
-                      ソウル大・KAIST・延世大
+                      ソウル大・延世大
                     </span>
                     出身、修士・博士級AI専門家が<br className="hidden md:inline" />御社の業務に合った
                     <span className="relative inline-block">
-                      <motion.span 
+                      <motion.span
                         className="absolute inset-0 bg-red-400/60 -skew-x-3 -z-10 origin-left"
                         initial={{ scaleX: 0 }}
                         whileInView={{ scaleX: 1.05 }}
@@ -2647,18 +2866,18 @@ const EducationContent = ({ stats }: EducationPageProps) => {
                   </>
                 : <>
                     <span className="relative inline-block">
-                      <motion.span 
+                      <motion.span
                         className="absolute inset-0 bg-yellow-300/60 -skew-x-3 -z-10 origin-left"
                         initial={{ scaleX: 0 }}
                         whileInView={{ scaleX: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
                       />
-                      서울대·카이스트·연세대
+                      서울대·연세대
                     </span>
                     {' '}출신, 석·박사급 AI 전문가들이<br />우리 회사 업무에 맞는{' '}
                     <span className="relative inline-block">
-                      <motion.span 
+                      <motion.span
                         className="absolute inset-0 bg-red-400/60 -skew-x-3 -z-10 origin-left"
                         initial={{ scaleX: 0 }}
                         whileInView={{ scaleX: 1 }}
@@ -2686,22 +2905,12 @@ const EducationContent = ({ stats }: EducationPageProps) => {
             <h3 className="text-xl md:text-2xl font-bold text-white text-center mb-8">
               {t('edu.instructor.videoTitle1')}<span className="bg-gradient-to-r from-[#8D36EB] to-[#165CFF] bg-clip-text text-transparent">{t('edu.instructor.videoTitle2')}</span>
             </h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="aspect-video rounded-xl overflow-hidden border border-white/10 bg-black/20">
-                <iframe
-                  className="w-full h-full"
-                  src="https://www.youtube.com/embed/lKE_0BFLL1s?si=YtqHwIlKcO4y8Q2-"
-                  title="NextGen AI 강연 영상 1"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                />
-              </div>
+            <div className="max-w-2xl mx-auto">
               <div className="aspect-video rounded-xl overflow-hidden border border-white/10 bg-black/20">
                 <iframe
                   className="w-full h-full"
                   src="https://www.youtube.com/embed/mot9hPKJ96c?si=QFIIh56t7Eg97VMR"
-                  title="NextGen AI 강연 영상 2"
+                  title="NextGen AI 강연 영상"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   referrerPolicy="strict-origin-when-cross-origin"
                   allowFullScreen
@@ -2713,9 +2922,25 @@ const EducationContent = ({ stats }: EducationPageProps) => {
         </div>
       </section>
 
+      {/* 파트너사 */}
+      <EduPartnerLogosSection />
+
+      {/* 고객 후기 */}
+      <section className="py-24 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <TestimonialCarousel t={t} language={language} />
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <EduFAQSection />
+
+      {/* 도입 문의 폼 */}
+      <EduContactSection />
+
       {/* Section 8: Footer CTA */}
       <section className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-muted/50 via-background to-muted/50" />
+        <div className="absolute inset-0 bg-gray-50" />
         
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
@@ -2781,6 +3006,49 @@ const EducationContent = ({ stats }: EducationPageProps) => {
           </motion.div>
         </div>
       </section>
+
+      {/* Sticky Bottom CTA */}
+      <AnimatePresence>
+        {showStickyCTA && (
+          <motion.div
+            initial={{ y: 80, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 80, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="fixed bottom-0 left-0 right-0 z-40 bg-white/96 backdrop-blur-md border-t border-black/8 shadow-2xl"
+          >
+            <div className="container mx-auto px-6 py-3 flex items-center gap-4">
+              <p className="text-sm font-semibold text-foreground hidden sm:block flex-1">
+                무료로 맞춤형 교육을 상담받아보세요
+              </p>
+              <div className="flex items-center gap-2 ml-auto">
+                <button
+                  onClick={() => setShowStickyCTA(false)}
+                  className="p-1.5 rounded-full text-muted-foreground hover:text-foreground hover:bg-black/5 transition-colors"
+                  aria-label="닫기"
+                >
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+                <button
+                  onClick={() => openContactTab("seminar")}
+                  className="hidden sm:flex items-center gap-1.5 rounded-full border border-emerald-300 bg-emerald-50 px-4 py-2.5 text-sm font-bold text-emerald-700 hover:bg-emerald-100 transition-colors whitespace-nowrap"
+                >
+                  무료 세미나 신청
+                </button>
+                <button
+                  onClick={handlePrimaryCTA}
+                  className="flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[#8D36EB] to-[#165CFF] px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-[#8D36EB]/25 hover:opacity-90 transition-opacity whitespace-nowrap"
+                >
+                  무료 교육 문의
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <Footer />
       <ContactWidget />
